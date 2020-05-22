@@ -1,0 +1,64 @@
+// reset
+// @import "reset/normalize.css";
+// @import "reset/bootstrap-reboot.css";
+// @import "reset/reset.css";
+
+// fonts
+@import "fonts/consolas";
+@import "fonts/roboto";
+@import "fonts/indie-flower";
+
+// bootstrap
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+// vars
+$color: rgba(255,0,0, 0.1);
+
+body {
+  background-color: $color;
+}
+
+.spacer { padding-top: 30px }
+
+.home-page {
+  h2 {
+    background-color: rgba(255,255,255, 0.5);
+    margin-bottom: 20px;
+    color: maroon;
+  }
+
+}
+
+.custom-font {
+  .roboto { font-family: 'Roboto', sans-serif; }
+  .consolas { font-family: 'Consolas', monospace; }
+  .indie-flower { font-family: 'Indie Flower'; }
+}
+
+.load-images {
+  &__item {
+    margin-bottom: 30px;
+
+    h3 {
+      margin-bottom: 10px;
+    }
+
+    .load-image {
+      width: 100px;
+      height: 100px;
+      background-repeat: no-repeat;
+      background-image: url(../img/react.png);
+      background-size: cover;
+      background-position: center;
+    }
+
+    .load-image2 {
+      width: 100%;
+      height: 100px;
+      background-repeat: no-repeat;
+      background-image: url(../img/react-heavy.jpg);
+      background-size: cover;
+      background-position: center;
+    }
+  }
+}

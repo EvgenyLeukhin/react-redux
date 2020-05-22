@@ -1,0 +1,21 @@
+// 400 //
+@font-face {
+  font-family: 'Consolas';
+  src: local('Consolas'), local('Consolas-Regular'), local('Consolas_Regular'), local('Consolas Regular'),
+    url('../fonts/Consolas/400/Consolas-Regular.woff2') format('woff2'),
+    url('../fonts/Consolas/400/Consolas-Regular.woff') format('woff'),
+    url('../fonts/Consolas/400/Consolas-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+// 400-i //
+@font-face {
+  font-family: 'Consolas';
+  src: local('Consolas'), local('Consolas-Italic'), local('Consolas_Italic'), local('Consolas Italic'),
+    url('../fonts/Consolas/400-i/Consolas-Italic.woff2') format('woff2'),
+    url('../fonts/Consolas/400-i/Consolas-Italic.woff') format('woff'),
+    url('../fonts/Consolas/400-i/Consolas-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}

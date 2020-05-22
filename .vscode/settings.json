@@ -1,0 +1,38 @@
+{
+  "git.autofetch": true,
+  "git.enableSmartCommit": true,
+  "gitlens.keymap": "alternate",
+  "gitlens.advanced.messages": {
+    "suppressResultsExplorerNotice": true,
+    "suppressShowKeyBindingsNotice": true
+  },
+  "editor.fontSize": 14,
+  "editor.formatOnPaste": true,
+  "editor.minimap.enabled": true,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.snippetSuggestions": "top",
+  "editor.renderControlCharacters": false,
+  "editor.renderWhitespace": "all",
+  "editor.rulers": [
+    110
+  ],
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
+  "editor.fontFamily": "'Consolas', 'Droid Sans Mono', monospace, 'Droid Sans Fallback'",
+  "workbench.colorTheme": "Monokai",
+  "workbench.statusBar.visible": true,
+  "window.zoomLevel": 0,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "javascript.implicitProjectConfig.experimentalDecorators": true,
+  "terminal.integrated.shell.linux": "/bin/bash",
+  "npm-scripts.showStartNotification": true,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+  },
+  "emmet.syntaxProfiles": {
+    "javascript": "jsx",
+    // "javascript": "html",
+  },
+}
