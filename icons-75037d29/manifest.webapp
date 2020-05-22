@@ -1,0 +1,14 @@
+{
+  "version": "1.0.0",
+  "name": "react-redux",
+  "description": "React template with basic logic and Redux on custom webpack builder",
+  "icons": {
+    "60": "icons-75037d29/firefox_app_60x60.png",
+    "128": "icons-75037d29/firefox_app_128x128.png",
+    "512": "icons-75037d29/firefox_app_512x512.png"
+  },
+  "developer": {
+    "name": "Evgeny Leukhin",
+    "url": null
+  }
+}
