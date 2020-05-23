@@ -1,5 +1,6 @@
 const path = require('path'); // nodejs path
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 // Entry and output
 const paths = {
@@ -94,6 +95,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       favicon: './src/static/img/icons/favs/favicon.png',
       template: __dirname + '/src/static/index.html'
-    })
+    }),
+     new OpenBrowserPlugin({ url: 'http://localhost:8000' }),
   ]
 };
