@@ -10,12 +10,13 @@ const paths = {
 
 // nodejs module
 module.exports = {
+  mode: 'development',
+
   // ENTRY point //
   entry: paths.SRC,
 
 
   // DEV-SERVER //
-  mode: 'development',
   watch: true,
   devServer: {
     port: 8000,
@@ -26,7 +27,7 @@ module.exports = {
   devtool: 'cheap-module-source-map',
 
 
-  // OUTPUT (where save compiled data) //
+  // OUTPUT (where save compiled data in RAM) //
   output: {
     path: paths.DIST,
     publicPath: '' // src="publicPath/bundle.js"
@@ -48,6 +49,7 @@ module.exports = {
   // CONFIGS //
   module: {
     rules: [
+
       // JS //
       {
         test: /\.(js|jsx)$/,
@@ -90,12 +92,15 @@ module.exports = {
     ]
   },
 
-  // plugins configs
+  // PLUGINS configs //
   plugins: [
+    // html-source //
     new HtmlWebpackPlugin({
       favicon: './src/static/img/icons/favs/favicon.png',
       template: __dirname + '/src/static/index.html'
     }),
+
+    // auto-open browser //
      new OpenBrowserPlugin({ url: 'http://localhost:8000' }),
   ]
 };

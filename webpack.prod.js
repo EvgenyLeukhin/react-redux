@@ -16,16 +16,15 @@ const paths = {
 
 // nodejs module
 module.exports = {
+  mode: 'production',
+
+
   // ENTRY point //
   entry: paths.SRC,
-
-
-  // DEV-SERVER //
-  mode: 'production',
   output: { filename: 'bundle.js' },
 
 
-  // OUTPUT (where save compiled data) //
+  // OUTPUT (where save compiled data in HDD) //
   output: {
     path: paths.DIST,
     publicPath: '' // src="publicPath/bundle.js"
@@ -99,7 +98,7 @@ module.exports = {
   optimization: {
     minimize: true,
     minimizer: [
-      // min js
+      // min js //
       new UglifyJsPlugin({
         cache: true,
         parallel: true,
@@ -111,18 +110,25 @@ module.exports = {
     ]
   },
 
-  // plugins configs
+  // PLUGINS configs //
   plugins: [
     new WebpackBar(),
     new CleanWebpackPlugin(),
-    new CompressionPlugin({ algorithm: 'gzip' }),                  // gzip compress
+
+    // gzip compress //
+    new CompressionPlugin({ algorithm: 'gzip' }),
+
     // min css //
     new OptimizeCSSAssetsPlugin({
       cssProcessorPluginOptions: {
         preset: ['default', { discardComments: { removeAll: true } }],
       },
     }),
-    new MiniCssExtractPlugin({ filename: 'bundle-[hash:8].css' }), // css bundle
+
+    // css bundle //
+    new MiniCssExtractPlugin({ filename: 'bundle-[hash:8].css' }),
+
+    // html-source //
     new HtmlWebpackPlugin({
       template: __dirname + '/src/static/index.html',
       minify: {
@@ -131,6 +137,8 @@ module.exports = {
         conservativeCollapse: true
       }
     }),
+
+    // favicons //
     new FaviconsWebpackPlugin({
       logo: './src/static/img/icons/favs/favicon.png',
       prefix: 'icons-[hash:8]/',
