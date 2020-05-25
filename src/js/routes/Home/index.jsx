@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import {
   Container, Row, Col, Card, CardText, CardBody, CardTitle, CardSubtitle, Button
 } from 'reactstrap';
@@ -10,7 +11,14 @@ import reactBigImage from 'Images/react-heavy.jpg';
 const Home = () => {
   return (
     <Container className="home-page">
+      <Helmet>
+        <title>React-Redux | Home page</title>
+      </Helmet>
+
       <h1>Home page</h1>
+      <p>
+        <Link to="/login">Login page</Link>
+      </p>
       <p>
         <Link to="/page-1">Page 1</Link>
       </p>
