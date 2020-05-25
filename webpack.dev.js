@@ -39,9 +39,12 @@ module.exports = {
     extensions: ['.js', '.jsx'], // for React
     alias: {
       Routes: path.resolve(__dirname, 'src', 'js/routes'),
+      Consts: path.resolve(__dirname, 'src', 'js/consts'),
+      Utils:  path.resolve(__dirname, 'src', 'js/utils'),
       Images: path.resolve(__dirname, 'src', 'static/img'),
       Styles: path.resolve(__dirname, 'src', 'static/scss'),
-      Fonts: path.resolve(__dirname, 'src', 'static/fonts'),
+      Fonts:  path.resolve(__dirname, 'src', 'static/fonts'),
+      Images: path.resolve(__dirname, 'src', 'static/img'),
     }
   },
 
