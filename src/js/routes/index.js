@@ -5,6 +5,8 @@ import { Switch, Route } from 'react-router-dom';
 // Routes //
 import Login from 'Routes/Login';
 import Bootstrap from 'Routes/Bootstrap';
+import Page1 from 'Routes/Page1';
+import Page2 from 'Routes/Page2';
 
 const Routes = () => {
   // check token
