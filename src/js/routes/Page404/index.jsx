@@ -1,19 +1,28 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
-const NotFoundPage = () => (
-  <>
-    <Helmet>
-      <title>React-Redux | 404 page</title>
-    </Helmet>
+import isLogin from 'Utils/IsLogIn';
 
-    <h1>404 - Not Found Page</h1>
+const NotFoundPage = () => {
+  // check for login
+  if (!isLogin) {
+    return <Redirect to='/login' />;
+  }
 
-    <p>
-      <Link to="/">Go to Home </Link>
-    </p>
-  </>
-)
+  return (
+    <>
+      <Helmet>
+        <title>React-Redux | 404 page</title>
+      </Helmet>
+
+      <h1>404 - Not Found Page</h1>
+
+      <p>
+        <Link to="/">Go to Home </Link>
+      </p>
+    </>
+  )
+}
 
 export default NotFoundPage;
