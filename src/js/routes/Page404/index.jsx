@@ -1,15 +1,8 @@
 import React from 'react';
-import { Redirect, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
-import isLogin from 'Utils/IsLogIn';
-
 const NotFoundPage = () => {
-  // check for login
-  if (!isLogin) {
-    return <Redirect to='/login' />;
-  }
-
   return (
     <>
       <Helmet>

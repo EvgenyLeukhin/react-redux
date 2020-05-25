@@ -1,3 +1,3 @@
-const isLogIn = localStorage.getItem('react-redux-token');
+const isLogIn = localStorage.getItem('react-redux-user-data');
 
 export default isLogIn;

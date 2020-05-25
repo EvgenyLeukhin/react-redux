@@ -1,11 +1,13 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
+// import routes
 import Login from 'Routes/Login';
 import Home from 'Routes/Home';
 import Page1 from 'Routes/Page1';
 import Page2 from 'Routes/Page2';
 import Page404 from 'Routes/Page404';
+
 
 const Routes = () => {
   return (

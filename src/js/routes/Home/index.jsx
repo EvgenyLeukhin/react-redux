@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import {
   Container, Row, Col, Card, CardText, CardBody, CardTitle, CardSubtitle, Button
@@ -8,14 +8,7 @@ import {
 import reactImage from 'Images/react.png';
 import reactBigImage from 'Images/react-heavy.jpg';
 
-import isLogin from 'Utils/IsLogIn';
-
 const Home = () => {
-  // check for login
-  if (!isLogin) {
-    return <Redirect to='/login' />;
-  }
-
   return (
     <Container className="home-page">
       <Helmet>

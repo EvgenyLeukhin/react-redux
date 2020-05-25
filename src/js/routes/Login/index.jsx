@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+// import { Redirect } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import axios from 'axios';
 
-import { Container, Form, FormGroup, Label, Input,  Button } from 'reactstrap';
+import { Container, Form, FormGroup, Label, Input, Button, Alert, Spinner } from 'reactstrap';
 
-import isLogin from 'Utils/IsLogIn';
+// import isLogin from 'Utils/IsLogIn';
+
+import { API_URL, subUrl } from 'Consts/apiUrl';
 
 import './styles.scss';
 
@@ -15,21 +18,53 @@ class Login extends Component {
     loading: false,
     success: false,
     error: false,
+    errorText: '',
   }
 
-  onChange = e => this.setState({ [e.target.name]: e.target.value });
+  onChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value,
+      error: false,
+    });
+  }
 
   loginSubmit = e => {
     e.preventDefault();
-    alert(123);
+    const { email, password } = this.state;
+
+    axios.post(`${API_URL}/${subUrl}/users/login?include=user`, { email, password })
+      .then(this.setState({ loading: true }))
+
+      // LOGIN //
+      .then(res => {
+        // save user-data obj to localStorage
+        localStorage.setItem('react-redux-user-data', JSON.stringify(res));
+
+        this.setState({
+          success: true,
+        });
+
+        // redirect to home page
+        setTimeout(() => {
+          const { history } = this.props;
+          history.push('/');
+        }, 2000);
+      })
+
+      // NOT LOGIN //
+      .catch(error => {
+        console.log(error);
+        this.setState({
+          error: true,
+          loading: false,
+          errorText: error,
+        })
+      })
+
   }
 
   render() {
-    if (isLogin) {
-      return <Redirect to='/' />;
-    }
-
-    const { email, password } = this.state;
+    const { email, password, loading, success, error } = this.state;
 
     return (
       <div>
@@ -38,7 +73,11 @@ class Login extends Component {
         </Helmet>
 
         <Container>
+
+
           <div className="login-form">
+            { success && <Alert color="success">Success</Alert> }
+            { error   && <Alert color="danger">Wrong email or password</Alert> }
             <h1 className="text-center">Login form</h1>
 
             <Form
@@ -77,7 +116,7 @@ class Login extends Component {
                 type="submit"
                 size="lg"
               >
-                Login
+                { loading ? <Spinner /> : 'Login' }
               </Button>
             </Form>
           </div>
