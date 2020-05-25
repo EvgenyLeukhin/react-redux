@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   Container, Row, Col, Card, CardText, CardBody, CardTitle, CardSubtitle, Button
 } from 'reactstrap';
@@ -6,9 +7,19 @@ import {
 import reactImage from 'Images/react.png';
 import reactBigImage from 'Images/react-heavy.jpg';
 
-const Bootstrap = () => {
+const Home = () => {
   return (
     <Container className="home-page">
+      <h1>Home page</h1>
+      <p>
+        <Link to="/page-1">Page 1</Link>
+      </p>
+      <p>
+        <Link to="/page-2">Page 2</Link>
+      </p>
+      <p>
+        <Link to="/123">404 page</Link>
+      </p>
       <div className="spacer" />
       <h2 className="text-center">Bootstrap card-component</h2>
 
@@ -96,4 +107,4 @@ const Bootstrap = () => {
   );
 }
 
-export default Bootstrap;
+export default Home;
