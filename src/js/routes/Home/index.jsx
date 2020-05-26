@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import {
   Container, Row, Col, Card, CardText, CardBody, CardTitle, CardSubtitle, Button
@@ -17,16 +17,16 @@ const Home = () => {
 
       <h1>Home page</h1>
       <p>
-        <Link to="/login">Login page</Link>
+        <NavLink to="/login">Login page</NavLink>
       </p>
       <p>
-        <Link to="/page-1">Page 1</Link>
+        <NavLink to="/page-1">Page 1</NavLink>
       </p>
       <p>
-        <Link to="/page-2">Page 2</Link>
+        <NavLink to="/page-2">Page 2</NavLink>
       </p>
       <p>
-        <Link to="/123">404 page</Link>
+        <NavLink to="/123">404 page</NavLink>
       </p>
       <div className="spacer" />
       <h2 className="text-center">Bootstrap card-component</h2>

@@ -1,0 +1,22 @@
+.app-header {
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: white;
+
+  a {
+    color: inherit;
+    font-weight: bold;
+    color: inherit;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  button {
+    margin-left: auto;
+  }
+}

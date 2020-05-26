@@ -40,6 +40,7 @@ module.exports = {
     alias: {
       Components: path.resolve(__dirname, 'src', 'js/components'),
       Routes:     path.resolve(__dirname, 'src', 'js/routes'),
+      Layout:     path.resolve(__dirname, 'src', 'js/layout'),
       Consts:     path.resolve(__dirname, 'src', 'js/consts'),
       Utils:      path.resolve(__dirname, 'src', 'js/utils'),
       Images:     path.resolve(__dirname, 'src', 'static/img'),
