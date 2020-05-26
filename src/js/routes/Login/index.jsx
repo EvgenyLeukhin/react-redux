@@ -9,6 +9,8 @@ import { Container, Form, FormGroup, Label, Input, Button, Alert, Spinner } from
 
 import { API_URL, subUrl } from 'Consts/apiUrl';
 
+import cln from 'classnames';
+
 import './styles.scss';
 
 class Login extends Component {
@@ -72,12 +74,16 @@ class Login extends Component {
           <title>React-Redux | Login</title>
         </Helmet>
 
-        <Container>
+        <Container className="login-container">
+          { success && <Alert color="success">Success</Alert> }
+          { error   && <Alert color="danger">Wrong email or password</Alert> }
 
-
-          <div className="login-form">
-            { success && <Alert color="success">Success</Alert> }
-            { error   && <Alert color="danger">Wrong email or password</Alert> }
+          <div className={cln('login-form',
+            {
+              'anim-move': success,
+              'anim-shake': error,
+            }
+          )}>
             <h1 className="text-center">Login form</h1>
 
             <Form

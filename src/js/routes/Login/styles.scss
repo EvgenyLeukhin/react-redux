@@ -1,3 +1,26 @@
+@keyframes anim-move {
+  from { left: 0 }
+  to { left: -1000px }
+}
+
+@keyframes anim-shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
 div.login-form {
   position: relative;
   max-width: 500px;
@@ -7,6 +30,20 @@ div.login-form {
   border-radius: 10px;
   background-color: rgba(0,0,0, 0.1);
   box-shadow: 0 0 20px 1px #ccc;
+
+  &.anim-move {
+    animation-name: anim-move;
+    animation-delay: 1.75s;
+    animation-duration: 0.25s;
+    animation-timing-function: linear;
+  }
+
+  &.anim-shake {
+    animation-name: anim-shake;
+    animation-duration: 0.82s;
+    animation-timing-function: cubic-bezier(.36,.07,.19,.97);
+    animation-fill-mode: both;
+  }
 
   label {
     margin-bottom: .25rem;
@@ -23,15 +60,17 @@ div.login-form {
     margin-right: auto;
   }
 
+  .spinner-border {
+    width: 1.7rem;
+    height: 1.7rem;
+  }
+}
+
+.login-container {
   .alert {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-  }
-
-  .spinner-border {
-    width: 1.7rem;
-    height: 1.7rem;
   }
 }
