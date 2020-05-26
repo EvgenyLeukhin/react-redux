@@ -1,16 +1,15 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import {
-  Container, Row, Col, Card, CardText, CardBody, CardTitle, CardSubtitle, Button
-} from 'reactstrap';
+import { Row, Col, Card, CardText, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap';
 
+// images
 import reactImage from 'Images/react.png';
 import reactBigImage from 'Images/react-heavy.jpg';
 
 const Home = () => {
   return (
-    <Container className="home-page">
+    <div className="home-page">
       <Helmet>
         <title>React-Redux | Home page</title>
       </Helmet>
@@ -111,7 +110,7 @@ const Home = () => {
         <h4 className="indie-flower">Indie flower</h4>
         <p className="indie-flower">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nobis molestias velit tempora aliquid atque veniam quidem. Doloremque, aliquam alias repudiandae veniam hic eveniet veritatis, est, sit magnam nam adipisci esse.</p>
       </div>
-    </Container>
+    </div>
   );
 }
 
