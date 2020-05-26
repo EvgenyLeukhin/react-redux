@@ -2,16 +2,24 @@ import React from 'react';
 
 import { NavLink } from 'react-router-dom';
 
-import { Container, Button } from 'reactstrap';
+import { Container, Button, Spinner } from 'reactstrap';
 
 import './styles.scss';
 
- const Header = () => {
+ const Header = ({ logout, loading }) => {
   return (
     <header className="app-header">
       <Container>
         <NavLink to="/">React-app</NavLink>
-        <Button color="primary" size="sm" outline>Log out</Button>
+        <Button
+          color="primary"
+          size="sm"
+          outline
+          onClick={logout}
+          style={{ minWidth: '66px' }}
+        >
+          { loading ? <Spinner size="sm" /> : 'Log out' }
+        </Button>
       </Container>
     </header>
   )
