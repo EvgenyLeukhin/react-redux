@@ -3,6 +3,8 @@
   z-index: 1;
 
   &__container {
+    min-height: 100vh;
     padding-top: 80px;
+    padding-bottom: 50px;
   }
 }
