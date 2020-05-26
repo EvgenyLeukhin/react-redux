@@ -42,9 +42,7 @@ class Login extends Component {
         // save user-data obj to localStorage
         localStorage.setItem('react-redux-user-data', JSON.stringify(res));
 
-        this.setState({
-          success: true,
-        });
+        this.setState({ success: true });
 
         // redirect to home page
         setTimeout(() => {
@@ -56,6 +54,7 @@ class Login extends Component {
       // NOT LOGIN //
       .catch(error => {
         console.log(error);
+
         this.setState({
           error: true,
           loading: false,

@@ -1,5 +1,7 @@
 import React from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
+
+import ProtectedRoute from 'Components/ProtectedRoute';
 
 // import routes
 import Login from 'Routes/Login';
@@ -12,13 +14,16 @@ import Page404 from 'Routes/Page404';
 const Routes = () => {
   return (
     <Switch>
-      <Route path='/' exact component={Home} />
-      <Route path='/login'  component={Login} />
-      <Route path='/page-1' component={Page1} />
-      <Route path='/page-2' component={Page2} />
+      {/* Login route */}
+      <Route path='/login' component={Login} />
 
-      {/* unknown route */}
-      <Route path="*"       component={Page404} />
+      {/* App protected routes */}
+      <ProtectedRoute path='/' exact component={Home} />
+      <ProtectedRoute path='/page-1' component={Page1} />
+      <ProtectedRoute path='/page-2' component={Page2} />
+
+      {/* Unknown route */}
+      <ProtectedRoute path="*" component={Page404} />
     </Switch>
   )
 }
