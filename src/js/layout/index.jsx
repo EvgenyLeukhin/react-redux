@@ -70,7 +70,7 @@ class Layout extends Component {
           toggleSidebar={this.toggleSidebar}
           logout={this.logout}
           loading={loading}
-          disableHeaderPin={sidebarIsOpen}
+          sidebarIsOpen={sidebarIsOpen}
         />
         <Sidebar
           showNav={sidebarIsOpen}

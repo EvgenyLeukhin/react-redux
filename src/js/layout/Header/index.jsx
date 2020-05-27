@@ -4,11 +4,13 @@ import { NavLink } from 'react-router-dom';
 import { Container, Button, Spinner } from 'reactstrap';
 import { MenuIcon } from 'react-simple-sidenav';
 
+import cln from 'classnames';
+
 import './styles.scss';
 
-const Header = ({ logout, loading, toggleSidebar }) => {
+const Header = ({ logout, loading, toggleSidebar, sidebarIsOpen }) => {
   return (
-    <Headroom>
+    <Headroom className={cln({ 'sidebarIsOpen': sidebarIsOpen })}>
       <Container>
         <MenuIcon className="burger-ico" onClick={toggleSidebar} />
         <NavLink to="/">React-app</NavLink>

@@ -1,3 +1,12 @@
+.headroom-wrapper {
+  &.sidebarIsOpen {
+    .headroom {
+      position: fixed !important;
+      transform: translateY(0%) !important;
+    }
+  }
+}
+
 .headroom {
   background-color: white;
   box-shadow: 0 0 5px 1px #ccc;
