@@ -2,11 +2,20 @@
 
 React template with basic logic and Redux on custom webpack builder
 
-## Github-hosting: [https://evgenyleukhin.github.io/react-redux/](https://evgenyleukhin.github.io/react-redux/)
+### Github-hosting
 
-## Fix node (Error: ENOSPC: System limit for number of file watchers reached, watch '/home/foldername/abcrypto/static') [link](https://github.com/gatsbyjs/gatsby/issues/11406)
+- [react-redux](https://evgenyleukhin.github.io/react-redux/) - This repo
+
+
+### Fix dev-node error
+
+Error: ENOSPC: System limit for number of file watchers reached, watch '/home/foldername/abcrypto/static'
+
+[link for details](https://github.com/gatsbyjs/gatsby/issues/11406)
 
 ```echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p```
+
+### Features progress
 
 * Custom webpack config +++
 * Routing in react app +++
@@ -14,6 +23,7 @@ React template with basic logic and Redux on custom webpack builder
 * Folder managment +++
 * Bootstrap 4, reactstrap +++
 * Work with some API (without Redux) +++
+- Layout components +++
 
 * Show some data-list
 * Work with data (CRUD)
