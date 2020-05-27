@@ -14,20 +14,6 @@ const Home = () => {
         <title>React-Redux | Home page</title>
       </Helmet>
 
-      <h1>Home page</h1>
-      <p>
-        <NavLink to="/login">Login page</NavLink>
-      </p>
-      <p>
-        <NavLink to="/page-1">Page 1</NavLink>
-      </p>
-      <p>
-        <NavLink to="/page-2">Page 2</NavLink>
-      </p>
-      <p>
-        <NavLink to="/123">404 page</NavLink>
-      </p>
-      <div className="spacer" />
       <h2 className="text-center">Bootstrap card-component</h2>
 
       <Row>

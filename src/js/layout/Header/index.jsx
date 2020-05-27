@@ -2,13 +2,15 @@ import React from 'react';
 import Headroom from 'react-headroom';
 import { NavLink } from 'react-router-dom';
 import { Container, Button, Spinner } from 'reactstrap';
+import { MenuIcon } from 'react-simple-sidenav';
 
 import './styles.scss';
 
-const Header = ({ logout, loading }) => {
+const Header = ({ logout, loading, toggleSidebar }) => {
   return (
     <Headroom>
       <Container>
+        <MenuIcon className="burger-ico" onClick={toggleSidebar} />
         <NavLink to="/">React-app</NavLink>
         <Button
           color="primary"

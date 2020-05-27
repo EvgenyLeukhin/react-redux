@@ -7,6 +7,7 @@ import axios from 'axios';
 
 import { API_URL, subUrl } from 'Consts/apiUrl';
 
+import Sidebar from 'Layout/Sidebar';
 import Header from 'Layout/Header';
 import Footer from 'Layout/Footer';
 
@@ -20,6 +21,7 @@ class Layout extends Component {
     error: false,
     redirect: false,
     logOutSuccsess: false,
+    sidebarIsOpen: false,
   }
 
   logout = e => {
@@ -50,14 +52,30 @@ class Layout extends Component {
     });
   }
 
+  toggleSidebar = () => {
+    const { sidebarIsOpen } = this.state;
+    this.setState({ sidebarIsOpen: !sidebarIsOpen });
+  }
+
+  hideSidebar = () => this.setState({ sidebarIsOpen: false });
+
   render() {
-    const { redirect, loading } = this.state;
+    const { redirect, loading, sidebarIsOpen } = this.state;
 
     return (
       <div className="app-layout">
         { redirect && <Redirect to='/login' /> }
 
-        <Header logout={this.logout} loading={loading} />
+        <Header
+          toggleSidebar={this.toggleSidebar}
+          logout={this.logout}
+          loading={loading}
+          disableHeaderPin={sidebarIsOpen}
+        />
+        <Sidebar
+          showNav={sidebarIsOpen}
+          onHideNav={this.hideSidebar}
+        />
         <Container className="app-layout__container">
           {this.props.children}
         </Container>
