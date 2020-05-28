@@ -9,9 +9,6 @@ import cln from 'classnames';
 import './styles.scss';
 
 const Header = ({ logout, loading, toggleSidebar, sidebarIsOpen }) => {
-  const userData = JSON.parse(localStorage.getItem('react-redux-user-data'));
-  const { name, surname } = userData.data.user;
-
   return (
     <Headroom className={cln({ 'sidebarIsOpen': sidebarIsOpen })}>
       <Hamburger
@@ -22,7 +19,7 @@ const Header = ({ logout, loading, toggleSidebar, sidebarIsOpen }) => {
         toggle={toggleSidebar}
       />
       <NavLink className="brand-link" to="/" exact>React-app</NavLink>
-      <NavLink className="user-link" to="/user">{`${name || ''} ${surname || ''}`}</NavLink>
+      <NavLink className="user-link" to="/user">User</NavLink>
       <Button
         className="btn-logout"
         color="primary"

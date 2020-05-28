@@ -1,26 +1,19 @@
 import axios from 'axios';
 
-import { API_URL, subUrl } from 'Consts/apiUrl';
+import { API_URL, subUrl } from 'Api/apiUrl';
 
 const logOut = () => {
-  const token = JSON.parse(localStorage.getItem('react-redux-user-data')).id;
+  const userData = JSON.parse(localStorage.getItem('react-redux-user-data'));
+  const userToken = userData && userData.data.id;
 
   return axios.post(
-    `${API_URL}/${subUrl}/users/logout`, {},
-    {
-      headers: { Authorization: token }
+    `${API_URL}/${subUrl}/users/logout`, {}, {
+      headers: { Authorization: userToken }
     }
-  )
-    .then(() => {
-      // remove token
-      localStorage.removeItem('react-redux-user-data');
-
-      // TODO
-    }).catch(error => {
-      // remove token too
-      console.log(error);
-      localStorage.removeItem('react-redux-user-data');
-    })
-};
+  ).then(() => {
+    // remove user-data
+    localStorage.removeItem('react-redux-user-data');
+  })
+}
 
 export default logOut;

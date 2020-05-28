@@ -3,15 +3,15 @@ import { Container } from 'reactstrap';
 
 import { Redirect } from 'react-router-dom';
 
-import axios from 'axios';
+// import axios from 'axios';
 
-import { API_URL, subUrl } from 'Consts/apiUrl';
+// import { API_URL, subUrl } from 'Api/apiUrl';
 
 import Sidebar from 'Layout/Sidebar';
 import Header from 'Layout/Header';
 import Footer from 'Layout/Footer';
 
-// import logOut from 'Api/logOut';
+import logOut from 'Api/logOut';
 
 import './styles.scss';
 
@@ -29,27 +29,20 @@ class Layout extends Component {
 
     this.setState({ loading: true });
 
-    const userData = JSON.parse(localStorage.getItem('react-redux-user-data'));
-    const userToken = userData && userData.data.id;
+    logOut()
+      .then(() => {
+        // redirect
+        setTimeout(() => {
+          this.setState({ redirect: true });
+        }, 1000);
+      })
 
-    return axios.post(
-      `${API_URL}/${subUrl}/users/logout`, {}, {
-        headers: { Authorization: userToken }
-      }
-    ).then(() => {
-      // remove user-data
-      localStorage.removeItem('react-redux-user-data');
-
-      // redirect
-      setTimeout(() => {
-        this.setState({ redirect: true });
-      }, 1000);
-
-    // if error
-    }).catch(error => {
-      console.log(error);
-      localStorage.removeItem('react-redux-user-data');
-    });
+      // if error
+      .catch(error => {
+        console.log(error);
+        this.setState({ loading: false });
+        localStorage.removeItem('react-redux-user-data');
+      })
   }
 
   toggleSidebar = () => {

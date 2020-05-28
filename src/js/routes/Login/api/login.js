@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { API_URL, subUrl } from 'Consts/apiUrl';
+import { API_URL, subUrl } from 'Api/apiUrl';
 
 const loginRequest = ({ email, password }) => {
   return axios.get(

@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import { Container, Form, FormGroup, Label, Input, Button, Alert, Spinner } from 'reactstrap';
-import axios from 'axios';
 import cln from 'classnames';
 
-import { API_URL, subUrl } from 'Consts/apiUrl';
+import logIn from 'Api/logIn';
 
 import './styles.scss';
 
@@ -29,10 +28,10 @@ class Login extends Component {
     e.preventDefault();
     const { email, password } = this.state;
 
-    axios.post(`${API_URL}/${subUrl}/users/login?include=user`, { email, password })
-      .then(this.setState({ loading: true }))
+    this.setState({ loading: true })
 
-      // LOGIN //
+    logIn(email, password)
+      // LOGIN OK //
       .then(res => {
         // save user-data obj to localStorage
         localStorage.setItem('react-redux-user-data', JSON.stringify(res));
@@ -46,7 +45,7 @@ class Login extends Component {
         }, 2000);
       })
 
-      // NOT LOGIN //
+      // LOGIN NOT OK //
       .catch(error => {
         console.log(error);
 
