@@ -28,7 +28,10 @@ const Sidebar = ({ showNav, onHideNav }) => {
       title="React App"
       items={navItems}
       titleStyle={{ backgroundColor: 'maroon' }}
-      itemStyle={{ backgroundColor: '#fff' }}
+      itemStyle={{
+        backgroundColor: '#fff',
+        listStyle: 'none'
+      }}
       itemHoverStyle={{ backgroundColor: 'transparent' }}
     />
   );

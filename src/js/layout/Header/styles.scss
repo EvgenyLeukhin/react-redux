@@ -8,22 +8,15 @@
 }
 
 .headroom {
+  padding-left: 15px;
+  padding-right: 15px;
   background-color: white;
   box-shadow: 0 0 5px 1px #ccc;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
 
-  .container {
-    display: flex;
-    align-items: center;
-    min-height: 50px;
-
-    .burger-ico {
-      position: absolute;
-      fill: maroon;
-      left: 10px;
-    }
-  }
-
-  a {
+  .brand-link {
     color: inherit;
     font-weight: bold;
     color: inherit;
@@ -33,7 +26,8 @@
     }
   }
 
-  button {
+  .btn-logout {
     margin-left: auto;
+    min-width: 70px;
   }
 }
