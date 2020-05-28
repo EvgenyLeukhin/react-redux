@@ -9,6 +9,9 @@ import cln from 'classnames';
 import './styles.scss';
 
 const Header = ({ logout, loading, toggleSidebar, sidebarIsOpen }) => {
+  const userData = JSON.parse(localStorage.getItem('react-redux-user-data'));
+  const { name, surname } = userData.data.user;
+
   return (
     <Headroom className={cln({ 'sidebarIsOpen': sidebarIsOpen })}>
       <Hamburger
@@ -19,6 +22,7 @@ const Header = ({ logout, loading, toggleSidebar, sidebarIsOpen }) => {
         toggle={toggleSidebar}
       />
       <NavLink className="brand-link" to="/" exact>React-app</NavLink>
+      <NavLink className="user-link" to="/user">{`${name || ''} ${surname || ''}`}</NavLink>
       <Button
         className="btn-logout"
         color="primary"
@@ -33,30 +37,3 @@ const Header = ({ logout, loading, toggleSidebar, sidebarIsOpen }) => {
 }
 
 export default Header;
-
-// import React from 'react';
-
-// import { NavLink } from 'react-router-dom';
-
-// import { Container, Button, Spinner } from 'reactstrap';
-
-// import './styles.scss';
-
-//  const Header = ({ logout, loading }) => {
-//   return (
-//     <header className="app-header">
-//       <Container>
-//         <NavLink to="/">React-app</NavLink>
-//         <Button
-//           color="primary"
-//           size="sm"
-//           outline
-//           onClick={logout}
-//           style={{ minWidth: '66px' }}
-//         >
-//           { loading ? <Spinner size="sm" /> : 'Log out' }
-//         </Button>
-//       </Container>
-//     </header>
-//   )
-// }

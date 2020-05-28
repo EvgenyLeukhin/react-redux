@@ -15,8 +15,10 @@
   min-height: 50px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
   .brand-link {
+    margin-right: auto;
     color: inherit;
     font-weight: bold;
     color: inherit;
@@ -26,13 +28,17 @@
       cursor: default;
     }
 
-    &:hover {
-      text-decoration: none;
+    &:hover { text-decoration: none; }
+  }
+
+  .user-link {
+    margin-right: 15px;
+
+    &.active {
+      pointer-events: none;
+      cursor: default;
     }
   }
 
-  .btn-logout {
-    margin-left: auto;
-    min-width: 70px;
-  }
+  .btn-logout { min-width: 70px; }
 }

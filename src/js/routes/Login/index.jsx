@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
-// import { Redirect } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import axios from 'axios';
-
 import { Container, Form, FormGroup, Label, Input, Button, Alert, Spinner } from 'reactstrap';
-
-// import isLogin from 'Utils/IsLogIn';
+import axios from 'axios';
+import cln from 'classnames';
 
 import { API_URL, subUrl } from 'Consts/apiUrl';
-
-import cln from 'classnames';
 
 import './styles.scss';
 
