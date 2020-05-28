@@ -3,10 +3,6 @@ import { Container } from 'reactstrap';
 
 import { Redirect } from 'react-router-dom';
 
-// import axios from 'axios';
-
-// import { API_URL, subUrl } from 'Api/apiUrl';
-
 import Sidebar from 'Layout/Sidebar';
 import Header from 'Layout/Header';
 import Footer from 'Layout/Footer';

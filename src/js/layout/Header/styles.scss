@@ -32,7 +32,17 @@
   }
 
   .user-link {
-    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+
+    .user-avatar {
+      background-size: contain;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      margin-right: 5px;
+    }
 
     &.active {
       pointer-events: none;

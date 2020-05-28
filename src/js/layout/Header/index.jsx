@@ -6,6 +6,8 @@ import Hamburger from 'hamburger-react'
 
 import cln from 'classnames';
 
+import { userName, userImg } from 'Consts/userData';
+
 import './styles.scss';
 
 const Header = ({ logout, loading, toggleSidebar, sidebarIsOpen }) => {
@@ -19,7 +21,10 @@ const Header = ({ logout, loading, toggleSidebar, sidebarIsOpen }) => {
         toggle={toggleSidebar}
       />
       <NavLink className="brand-link" to="/" exact>React-app</NavLink>
-      <NavLink className="user-link" to="/user">User</NavLink>
+      <NavLink className="user-link" to="/user">
+        <div style={{ backgroundImage: `url(${userImg})` }} className="user-avatar" />
+        { userName || 'User' }
+      </NavLink>
       <Button
         className="btn-logout"
         color="primary"

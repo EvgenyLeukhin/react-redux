@@ -6,6 +6,7 @@ import ProtectedRoute from 'Components/ProtectedRoute';
 // import routes
 import Login from 'Routes/Login';
 import Home from 'Routes/Home';
+import User from 'Routes/User';
 import Page1 from 'Routes/Page1';
 import Page2 from 'Routes/Page2';
 import Page404 from 'Routes/Page404';
@@ -19,6 +20,7 @@ const Routes = () => {
 
       {/* App protected routes */}
       <ProtectedRoute path='/' exact component={Home} />
+      <ProtectedRoute path='/user'   component={User} />
       <ProtectedRoute path='/page-1' component={Page1} />
       <ProtectedRoute path='/page-2' component={Page2} />
 
