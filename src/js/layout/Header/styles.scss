@@ -21,6 +21,11 @@
     font-weight: bold;
     color: inherit;
 
+    &.active {
+      pointer-events: none;
+      cursor: default;
+    }
+
     &:hover {
       text-decoration: none;
     }

@@ -18,7 +18,7 @@ const Header = ({ logout, loading, toggleSidebar, sidebarIsOpen }) => {
         toggled={sidebarIsOpen}
         toggle={toggleSidebar}
       />
-      <NavLink className="brand-link" to="/">React-app</NavLink>
+      <NavLink className="brand-link" to="/" exact>React-app</NavLink>
       <Button
         className="btn-logout"
         color="primary"
