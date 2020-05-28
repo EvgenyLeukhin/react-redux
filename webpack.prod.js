@@ -103,17 +103,17 @@ module.exports = {
 
   optimization: {
     minimize: true,
-    minimizer: [
-      // min js //
-      new UglifyJsPlugin({
-        cache: true,
-        parallel: true,
-        uglifyOptions: {
-          warnings: false,
-          output: { comments: false }
-        }
-      }),
-    ]
+    // minimizer: [
+    //   // min js //
+    //   new UglifyJsPlugin({
+    //     cache: true,
+    //     parallel: true,
+    //     uglifyOptions: {
+    //       warnings: false,
+    //       output: { comments: false }
+    //     }
+    //   }),
+    // ]
   },
 
   // PLUGINS configs //
