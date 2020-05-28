@@ -2,15 +2,17 @@ import React from 'react';
 import Headroom from 'react-headroom';
 import { NavLink } from 'react-router-dom';
 import { Button, Spinner } from 'reactstrap';
-import Hamburger from 'hamburger-react'
+import Hamburger from 'hamburger-react';
 
 import cln from 'classnames';
-
-import { userName, userImg } from 'Consts/userData';
 
 import './styles.scss';
 
 const Header = ({ logout, loading, toggleSidebar, sidebarIsOpen }) => {
+  const userData = JSON.parse(localStorage.getItem('react-redux-user-data'));
+  const userName = `${userData?.data?.user?.name} ${userData?.data?.user?.surname}`;
+  const userImg = userData?.data?.user?.image?.url;
+
   return (
     <Headroom className={cln({ 'sidebarIsOpen': sidebarIsOpen })}>
       <Hamburger
@@ -21,8 +23,8 @@ const Header = ({ logout, loading, toggleSidebar, sidebarIsOpen }) => {
         toggle={toggleSidebar}
       />
       <NavLink className="brand-link" to="/" exact>React-app</NavLink>
-      <NavLink className="user-link" to="/user">
-        <div style={{ backgroundImage: `url(${userImg})` }} className="user-avatar" />
+      <NavLink className="user-link" to="/profile">
+        <div style={{ backgroundImage: `url(${userImg})` || 'none' }} className="user-avatar" />
         { userName || 'User' }
       </NavLink>
       <Button
