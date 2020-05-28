@@ -12,10 +12,10 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 
 // vars
-$color: rgba(255,0,0, 0.1);
+@import "vars";
 
 body {
-  background-color: $color;
+  background-color: $body-bg;
 }
 
 .spacer { padding-top: 30px }

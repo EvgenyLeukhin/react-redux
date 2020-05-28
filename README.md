@@ -1,4 +1,4 @@
-# react-redux-template
+# react-redux
 
 React template with basic logic and Redux on custom webpack builder
 

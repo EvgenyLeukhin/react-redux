@@ -1,9 +1,11 @@
+@import "../../static/scss/vars.scss";
+
 .app-layout {
   position: relative;
   z-index: 1;
 
   &__container {
-    min-height: calc(100vh - 50px);
+    min-height: calc(100vh - #{$footer-height});
     padding-top: 30px;
     padding-bottom: 50px;
   }

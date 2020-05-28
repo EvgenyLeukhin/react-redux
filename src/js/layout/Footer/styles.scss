@@ -1,8 +1,10 @@
+@import "../../../static/scss/vars.scss";
+
 .app-footer {
   color: white;
   display: flex;
-  min-height: 50px;
+  min-height: $footer-height;
   align-items: center;
   background-color: rgba(128, 0, 0, 0.75);
-  margin-top: -50px;
+  margin-top: -$footer-height;
 }

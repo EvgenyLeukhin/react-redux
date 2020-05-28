@@ -100,7 +100,6 @@ class Login extends Component {
                   value={email}
                   onChange={this.onChange}
                 />
-                <small>eugenel@effective.band</small>
               </FormGroup>
 
               <FormGroup>
@@ -113,7 +112,6 @@ class Login extends Component {
                   value={password}
                   onChange={this.onChange}
                 />
-                <small>eugenel@effective.band</small>
               </FormGroup>
 
               <Button

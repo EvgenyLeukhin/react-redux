@@ -1,3 +1,5 @@
+@import "../../../static/scss/vars.scss";
+
 @keyframes anim-move {
   from { left: 0 }
   to { left: -1000px }
@@ -28,7 +30,7 @@ div.login-form {
   padding: 50px 40px;
   border: 1px solid #ccc;
   border-radius: 10px;
-  background-color: rgba(0,0,0, 0.1);
+  background-color: $body-bg;
   box-shadow: 0 0 20px 1px #ccc;
 
   &.anim-move {
