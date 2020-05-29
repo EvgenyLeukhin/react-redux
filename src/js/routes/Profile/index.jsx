@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
-import { Alert, Table } from 'reactstrap';
+import { Alert, Table, Button } from 'reactstrap';
 
 import getUserData from 'Api/getUserData';
 
@@ -16,6 +16,8 @@ class Profile extends Component {
   }
 
   closeAlert = () => this.setState({ error: false });
+
+  editClick = () => this.props.history.push('/profile-edit');
 
   componentDidMount() {
     const userData = JSON.parse(localStorage.getItem('react-redux-user-data'));
@@ -64,11 +66,14 @@ class Profile extends Component {
           </Alert>
         }
 
-        <h1>User profile</h1>
+        <div className="title-container">
+          <h1>User profile</h1>
+          <Button color="primary" onClick={this.editClick}>Edit</Button>
+        </div>
         {
           loading ? 'Loading...' : (
             <Table
-              className="table-danger"
+              className="table-light"
               bordered
               striped
               hover

@@ -1,11 +1,12 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { Row, Col, Card, CardText, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap';
 
 // images
 import reactImage from 'Images/react.png';
 import reactBigImage from 'Images/react-heavy.jpg';
+
+import './styles.scss';
 
 const Home = () => {
   return (
