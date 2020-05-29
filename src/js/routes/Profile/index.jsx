@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
-import { Table } from 'reactstrap';
+import { Alert, Table } from 'reactstrap';
 
 import getUserData from 'Api/getUserData';
+
+import './styles.scss';
 
 
 class Profile extends Component {
   state = {
     loading: false,
-    userData: {}
+    error: false,
+    errorText: '',
+    userData: {},
   }
+
+  closeAlert = () => this.setState({ error: false });
 
   componentDidMount() {
     const userData = JSON.parse(localStorage.getItem('react-redux-user-data'));
@@ -24,20 +30,39 @@ class Profile extends Component {
         userData: res.data
       })
     }).catch(error => {
-      this.setState({ loading: false });
       console.log(error);
+
+      // 401 -> redirect to login
+      if (error.response.status === 401) {
+        localStorage.removeItem('react-redux-user-data');
+        this.props.history.push('/login');
+
+      // show error alert
+      } else {
+        this.setState({ loading: false, error: true, errorText: error });
+      }
     })
   }
 
   render() {
-    const { userData, loading } = this.state;
-    // console.log(userData);
+    const { userData, loading, error, errorText } = this.state;
+    const { id, name, surname, email, location, job_title, created } = userData;
 
     return (
-      <>
+      <div className="user-profile">
         <Helmet>
           <title>React-Redux | Profile</title>
         </Helmet>
+
+        {
+          <Alert
+            color="danger"
+            isOpen={error}
+            toggle={this.closeAlert}
+          >
+            {`${errorText}` || ''}
+          </Alert>
+        }
 
         <h1>User profile</h1>
         {
@@ -52,41 +77,41 @@ class Profile extends Component {
               <tbody>
                 <tr>
                   <td><b>Id</b></td>
-                  <td>{userData?.id}</td>
+                  <td>{id || ''}</td>
                 </tr>
                 <tr>
                   <td><b>Name</b></td>
-                  <td>{userData?.name}</td>
+                  <td>{name || ''}</td>
                 </tr>
                 <tr>
                   <td><b>Surname</b></td>
-                  <td>{userData?.surname}</td>
+                  <td>{surname || ''}</td>
                 </tr>
                 <tr>
                   <td><b>Email</b></td>
-                  <td>{userData?.email}</td>
+                  <td>{email || ''}</td>
                 </tr>
                 <tr>
                   <td><b>City</b></td>
-                  <td>{userData.location?.name || ''}</td>
+                  <td>{location?.name || ''}</td>
                 </tr>
                 <tr>
                   <td><b>Countty</b></td>
-                  <td>{userData.location?.alias_region || ''}</td>
+                  <td>{location?.alias_region || ''}</td>
                 </tr>
                 <tr>
                   <td><b>Job title</b></td>
-                  <td>{userData?.job_title}</td>
+                  <td>{job_title || ''}</td>
                 </tr>
                 <tr>
                   <td><b>Created</b></td>
-                  <td>{userData.created}</td>
+                  <td>{created || ''}</td>
                 </tr>
               </tbody>
             </Table>
           )
         }
-      </>
+      </div>
     )
   }
 }

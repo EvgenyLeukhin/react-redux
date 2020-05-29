@@ -1,0 +1,8 @@
+.headroom-wrapper + aside {
+
+  ul {
+    a.active {
+      pointer-events: none;
+    }
+  }
+}

@@ -27,7 +27,7 @@ class Layout extends Component {
 
     logOut()
       .then(() => {
-        // redirect
+        // redirect when logOut
         setTimeout(() => {
           this.setState({ redirect: true });
         }, 1000);
@@ -35,9 +35,12 @@ class Layout extends Component {
 
       // if error
       .catch(error => {
-        console.log(error);
-        this.setState({ loading: false });
         localStorage.removeItem('react-redux-user-data');
+        console.log(error);
+        this.setState({
+          redirect: true,
+          loading: false
+        });
       })
   }
 
