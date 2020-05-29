@@ -1,6 +1,6 @@
 import React from 'react';
-import SideNav from 'react-simple-sidenav';
 import { NavLink } from 'react-router-dom';
+import SideNav from 'react-simple-sidenav';
 
 import './styles.scss';
 
@@ -13,8 +13,9 @@ const Sidebar = ({ showNav, onHideNav }) => {
   };
 
   const navItems = [
-    <NavLink activeStyle={styles} onClick={onHideNav} to="/" exact>Home page</NavLink>,
-    <NavLink activeStyle={styles} onClick={onHideNav} to="/login">Login page</NavLink>,
+    <NavLink activeStyle={styles} onClick={onHideNav} to="/" exact>Home</NavLink>,
+    <NavLink activeStyle={styles} onClick={onHideNav} to="/login">Login</NavLink>,
+    <NavLink activeStyle={styles} onClick={onHideNav} to="/profile">Profile</NavLink>,
     <NavLink activeStyle={styles} onClick={onHideNav} to="/page-1">Page 1</NavLink>,
     <NavLink activeStyle={styles} onClick={onHideNav} to="/page-2">Page 2</NavLink>,
     <NavLink activeStyle={styles} onClick={onHideNav} to="/123">404 page</NavLink>
@@ -27,7 +28,7 @@ const Sidebar = ({ showNav, onHideNav }) => {
       onHideNav={onHideNav}
       title="React App"
       items={navItems}
-      titleStyle={{ backgroundColor: 'maroon' }}
+      titleStyle={{ backgroundColor: 'maroon', marginBottom: '30px' }}
       itemStyle={{
         backgroundColor: '#fff',
         listStyle: 'none'
