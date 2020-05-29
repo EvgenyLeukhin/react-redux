@@ -1,3 +1,5 @@
+@import "../../../static/scss/vars";
+
 .headroom-wrapper {
   &.sidebarIsOpen {
     .headroom {
@@ -51,4 +53,14 @@
   }
 
   .btn-logout { min-width: 70px; }
+}
+
+@media (max-width: $mobile-breakpoint) {
+  .headroom {
+    .user-link {
+       margin-right: 10px;
+
+       span { display: none; }
+    }
+  }
 }
