@@ -24,7 +24,7 @@ const Header = ({ logout, loading, toggleSidebar, sidebarIsOpen }) => {
       />
       <NavLink className="brand-link" to="/" exact>React-app</NavLink>
       <NavLink className="user-link" to="/profile" title={userName || 'User'}>
-        <div style={{ backgroundImage: `url(${userImg})` || 'none' }} className="user-avatar" />
+        <div style={{ backgroundImage: userImg ? `url(${userImg})` : 'none' }} className="user-avatar" />
         <span>{userName || 'User'}</span>
       </NavLink>
       <Button
