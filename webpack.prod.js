@@ -1,12 +1,12 @@
-const path = require('path'); // nodejs path
-const WebpackBar = require('webpackbar');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CompressionPlugin = require('compression-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path                    = require('path'); // nodejs path
+const WebpackBar              = require('webpackbar');
+const { CleanWebpackPlugin }  = require('clean-webpack-plugin');
+const CompressionPlugin       = require('compression-webpack-plugin');
+const HtmlWebpackPlugin       = require('html-webpack-plugin');
+const TerserPlugin            = require('terser-webpack-plugin');
+const MiniCssExtractPlugin    = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const FaviconsWebpackPlugin   = require('favicons-webpack-plugin');
 
 // Entry and output
 const paths = {
@@ -103,17 +103,12 @@ module.exports = {
 
   optimization: {
     minimize: true,
-    // minimizer: [
-    //   // min js //
-    //   new UglifyJsPlugin({
-    //     cache: true,
-    //     parallel: true,
-    //     uglifyOptions: {
-    //       warnings: false,
-    //       output: { comments: false }
-    //     }
-    //   }),
-    // ]
+    minimizer: [
+      new TerserPlugin({
+        sourceMap: true,
+        parallel: true,
+      })
+    ],
   },
 
   // PLUGINS configs //

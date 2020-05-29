@@ -1,4 +1,4 @@
-const path = require('path'); // nodejs path
+const path              = require('path'); // nodejs path
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
