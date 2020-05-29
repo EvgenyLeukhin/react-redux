@@ -23,6 +23,9 @@ class Profile extends Component {
         loading: false,
         userData: res.data
       })
+    }).catch(error => {
+      this.setState({ loading: false });
+      console.log(error);
     })
   }
 
