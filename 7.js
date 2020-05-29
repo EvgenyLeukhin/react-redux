@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[7],{102:function(e,n,a){"use strict";a.r(n);var t=a(0),l=a.n(t),u=a(84);n.default=function(){return l.a.createElement(l.a.Fragment,null,l.a.createElement(u.a,null,l.a.createElement("title",null,"React-Redux | Page 2")),l.a.createElement("h1",null,"Page 2"))}}}]);
