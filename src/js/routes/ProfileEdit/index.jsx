@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
-import { Button } from 'reactstrap';
+import { Container, Form, FormGroup, Label, Input, Button, Alert, Spinner } from 'reactstrap';
 
 import getUserData from 'Api/getUserData';
 
@@ -10,6 +10,7 @@ class ProfileEdit extends Component {
     error: false,
     errorText: '',
     userData: {},
+    name: '', surname: '', email: '', job_title: '',
   }
 
   deleteClick = () => alert('Delete request');
@@ -24,6 +25,10 @@ class ProfileEdit extends Component {
     getUserData(userId).then(res => {
       this.setState({
         loading: false,
+        name: res.data.name,
+        surname: res.data.surname,
+        email: res.data.email,
+        job_title: res.data.job_title,
         userData: res.data
       })
     }).catch(error => {
@@ -41,9 +46,18 @@ class ProfileEdit extends Component {
     })
   }
 
+  onChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value,
+      error: false,
+    });
+  }
+
   render() {
+    const { name, surname, email, job_title } = this.state;
+
     return (
-      <div className="user-profile-edit">
+      <div className="user-edit">
         <Helmet>
           <title>React-Redux | Profile Edit</title>
         </Helmet>
@@ -51,6 +65,59 @@ class ProfileEdit extends Component {
         <div className="title-container">
           <h1>Edit profile</h1>
           <Button color="danger" onClick={this.deleteClick}>Delete user</Button>
+
+          <Container className="user-edit__container">
+            <Form
+              action=""
+              method="post"
+              className="user-edit"
+              onSubmit={this.userEditSubmit}
+            >
+              <FormGroup>
+                <Label for="user-edit__name">Name</Label>
+                <Input
+                  id="user-edit__name"
+                  type="text"
+                  name="name"
+                  value={name}
+                  onChange={this.onChange}
+                />
+              </FormGroup>
+
+              <FormGroup>
+                <Label for="user-edit__surname">Surname</Label>
+                <Input
+                  id="user-edit__surname"
+                  type="text"
+                  name="surname"
+                  value={surname}
+                  onChange={this.onChange}
+                />
+              </FormGroup>
+
+              <FormGroup>
+                <Label for="user-edit__email">Surname</Label>
+                <Input
+                  id="user-edit__email"
+                  type="text"
+                  name="email"
+                  value={email}
+                  onChange={this.onChange}
+                />
+              </FormGroup>
+
+              <FormGroup>
+                <Label for="user-edit__job_title">Job title</Label>
+                <Input
+                  id="user-edit__job_title"
+                  type="text"
+                  name="job_title"
+                  value={job_title}
+                  onChange={this.onChange}
+                />
+              </FormGroup>
+            </Form>
+          </Container>
         </div>
       </div>
     )

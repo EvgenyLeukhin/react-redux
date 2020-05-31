@@ -48,7 +48,7 @@ class Profile extends Component {
 
   render() {
     const { userData, loading, error, errorText } = this.state;
-    const { id, name, surname, email, location, job_title, created } = userData;
+    const { id, name, surname, email, location, job_title, created, company } = userData;
 
     return (
       <div className="user-profile">
@@ -99,6 +99,10 @@ class Profile extends Component {
                 <tr>
                   <td><b>City</b></td>
                   <td>{location?.name || ''}</td>
+                </tr>
+                <tr>
+                  <td><b>Company</b></td>
+                  <td>{company?.name || ''}</td>
                 </tr>
                 <tr>
                   <td><b>Countty</b></td>

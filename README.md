@@ -26,6 +26,7 @@ Error: ENOSPC: System limit for number of file watchers reached, watch '/home/fo
 - Layout components +++
 * react-sidebar +++
 
+
 * Work with data (CRUD)
 * Show some data-list
 * react-table
@@ -33,6 +34,8 @@ Error: ENOSPC: System limit for number of file watchers reached, watch '/home/fo
 ---
 * eslint
 * proptypes
+* browser-sync
+* fix favicons prod problem
 * Redux
 * Firebase
 
