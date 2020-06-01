@@ -4,9 +4,9 @@ import { Alert, Button } from 'reactstrap';
 
 // API //
 import getUserData from 'Api/getUserData';
+import deleteUser  from 'Api/deleteUser';
 import uploadImage from 'Api/uploadImage';
 import editUser    from 'Api/editUser';
-import deleteUser  from 'Api/deleteUser';
 
 import UserForm from './form'
 
@@ -22,7 +22,7 @@ class Profile extends Component {
 
   state = {
     // UI
-    loading: false, error: false, errorText: '',
+    getLoading: false, editLoading: false, deleteLoading: false, error: false, errorText: '',
 
     // fields
     id: '', name: '', surname: '', email: '', job_title: '',
@@ -48,7 +48,13 @@ class Profile extends Component {
 
     } else {
       console.log(error);
-      this.setState({ loading: false, error: true, errorText: error });
+      this.setState({
+        getLoading: false,
+        editLoading: false,
+        deleteLoading: false,
+        error: true,
+        errorText: error
+      });
     }
   }
 
@@ -56,9 +62,15 @@ class Profile extends Component {
   // ACTIONS //
   closeAlert = () => this.setState({ error: false });
 
-  editClick = () => this.props.history.push('/profile-edit');
+  editUserSubmit = () => {
+    this.setState({ editLoading: true });
+  }
 
-  deleteClick = () => alert('Delete');
+  deleteUserSubmit = () => {
+    this.setState({ deleteLoading: true });
+
+
+  }
 
   onChange = e => {
     if (e.target.type === 'checkbox') {
@@ -103,13 +115,13 @@ class Profile extends Component {
     const userData = JSON.parse(localStorage.getItem('react-redux-user-data'));
     const userId = userData?.data?.userId;
 
-    this.setState({ loading: true });
+    this.setState({ getLoading: true });
 
     // get user data request
     getUserData(userId).then(res => {
       // console.log(res.data);
       this.setState({
-        loading: false,
+        getLoading: false,
 
         // fields
         id:                  res.data.id,
@@ -136,7 +148,7 @@ class Profile extends Component {
   render() {
     const {
       // UI
-      loading, error, errorText,
+      getLoading, editLoading, deleteLoading, error, errorText,
 
       // text fields
       id, name, surname, email, job_title, created, modified, lastLogin,
@@ -165,10 +177,12 @@ class Profile extends Component {
         <h1>User profile</h1>
 
         {
-          loading ? 'Loading...' : (
+          getLoading ? 'Loading...' : (
             <UserForm
               // UI
-              loading={loading}
+              getLoading={getLoading}
+              editLoading={editLoading}
+              deleteLoading={deleteLoading}
 
               // fields
               id={id}
@@ -189,8 +203,8 @@ class Profile extends Component {
 
               // actions
               onChange={this.onChange}
-              deleteImage={this.deleteImage}
-              userEditSubmit={this.userEditSubmit}
+              deleteUserSubmit={this.deleteUserSubmit}
+              editUserSubmit={this.editUserSubmit}
 
               // image
               image={image}

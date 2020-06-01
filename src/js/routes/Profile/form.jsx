@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Container, Row, Col, Button, Form, FormGroup, Label, Input, Spinner } from 'reactstrap';
 
 import isEmpty from 'lodash/isEmpty';
 
@@ -8,7 +8,7 @@ const UserForm = ({
   name, email, surname, job_title, status, emailVerified, emailJobApplication, emailMarketing, emailSettings, id, modified, created, lastLogin,
 
   // actions
-  userEditSubmit, userDeleteSubmit, onChange, deleteImage, loading,
+  editUserSubmit, deleteUserSubmit, onChange, deleteImage, getLoading, editLoading, deleteLoading,
 
   // image
   image, fileInputImage, imageLoading, onUploadImage, onChangeImage,
@@ -18,7 +18,7 @@ const UserForm = ({
       action=""
       method="post"
       className="user-profile__form"
-      onSubmit={userEditSubmit}
+      onSubmit={editUserSubmit}
     >
       <Container>
         <h4>Avatar</h4>
@@ -257,15 +257,12 @@ const UserForm = ({
         <hr />
 
         <div className="user-profile__btns">
-          <Button
-            color="primary"
-            type="submit"
-          >
-            { loading ? <Spinner /> : 'Save changes' }
+          <Button color="primary" type="submit">
+            { editLoading ? <Spinner /> : 'Save changes' }
           </Button>
 
-          <Button color="danger" type="submit" onClick={userDeleteSubmit} outline>
-            { loading ? <Spinner /> : 'Delete user' }
+          <Button color="danger" onClick={deleteUserSubmit} outline>
+            { deleteLoading ? <Spinner /> : 'Delete user' }
           </Button>
         </div>
       </Container>
