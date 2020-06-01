@@ -1,23 +1,67 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
-import { Alert, Table, Button } from 'reactstrap';
+import { Alert, Button } from 'reactstrap';
 
+// API //
 import getUserData from 'Api/getUserData';
+import uploadImage from 'Api/uploadImage';
+import editUser    from 'Api/editUser';
+import deleteUser  from 'Api/deleteUser';
+
+import UserForm from './form'
 
 import './styles.scss';
 
 
 class Profile extends Component {
+  fileInputImage = React.createRef();
+
   state = {
-    loading: false,
-    error: false,
-    errorText: '',
-    userData: {},
+    // UI
+    loading: false, error: false, errorText: '',
+
+    // fields
+    id: '', name: '', surname: '', email: '', job_title: '',
+    created: '', modified: '', lastLogin: '', image: '',
+
+    // statuses
+    emailVerified: false, status: false,
+
+    // notifications
+    emailJobApplication: false, emailMarketing: false, emailSettings: false,
+
+    // image
+    imageLoading: false,
   }
 
   closeAlert = () => this.setState({ error: false });
 
   editClick = () => this.props.history.push('/profile-edit');
+
+  deleteImage = () => this.setState({ image: '' });
+  deleteClick = () => alert('Delete');
+
+  onChange = e => {
+    if (e.target.type === 'checkbox') {
+      this.setState({
+        [e.target.name]: e.target.checked,
+        error: false
+      });
+    } else {
+      this.setState({
+        [e.target.name]: e.target.value,
+        error: false,
+      });
+    }
+  }
+
+  onChangeCheckbox = e => {
+    const checked = e.target.checked;
+    this.setState({
+      [e.target.name]: !checked,
+      error: false,
+    });
+  }
 
   componentDidMount() {
     const userData = JSON.parse(localStorage.getItem('react-redux-user-data'));
@@ -27,9 +71,26 @@ class Profile extends Component {
 
     // get user data request
     getUserData(userId).then(res => {
+      console.log(res.data);
       this.setState({
         loading: false,
-        userData: res.data
+
+        // fields
+        id: res.data.id,
+        name: res.data.name,
+        surname: res.data.surname,
+        email: res.data.email,
+        job_title: res.data.job_title,
+        image: res.data.image.url,
+        created: res.data.created,
+        modified: res.data.modified,
+        lastLogin: res.data.lastLogin,
+        emailVerified: res.data.emailVerified,
+        emailJobApplication: res.data.emailJobApplication,
+        emailMarketing: res.data.emailMarketing,
+        emailVerified: res.data.emailVerified,
+        emailSettings: res.data.emailSettings,
+        status: res.data.status,
       })
     }).catch(error => {
       console.log(error);
@@ -47,8 +108,16 @@ class Profile extends Component {
   }
 
   render() {
-    const { userData, loading, error, errorText } = this.state;
-    const { id, name, surname, email, location, job_title, created, company } = userData;
+    const {
+      // UI
+      loading, error, errorText, imageLoading,
+
+      // text fields
+      image, id, name, surname, email, job_title, created, modified, lastLogin,
+
+      // checkboxes
+      emailVerified, status, emailJobApplication, emailMarketing, emailSettings,
+    } = this.state;
 
     return (
       <div className="user-profile">
@@ -56,68 +125,46 @@ class Profile extends Component {
           <title>React-Redux | Profile</title>
         </Helmet>
 
-        {
-          <Alert
-            color="danger"
-            isOpen={error}
-            toggle={this.closeAlert}
-          >
-            {`${errorText}` || ''}
-          </Alert>
-        }
+        <Alert
+          color="danger"
+          isOpen={error}
+          toggle={this.closeAlert}
+        >
+          {`${errorText}` || ''}
+        </Alert>
 
-        <div className="title-container">
-          <h1>User profile</h1>
-          <Button color="primary" onClick={this.editClick}>Edit</Button>
-        </div>
+        <h1>User profile</h1>
+
         {
           loading ? 'Loading...' : (
-            <Table
-              className="table-light"
-              bordered
-              striped
-              hover
-              responsive
-            >
-              <tbody>
-                <tr>
-                  <td><b>Id</b></td>
-                  <td>{id || ''}</td>
-                </tr>
-                <tr>
-                  <td><b>Name</b></td>
-                  <td>{name || ''}</td>
-                </tr>
-                <tr>
-                  <td><b>Surname</b></td>
-                  <td>{surname || ''}</td>
-                </tr>
-                <tr>
-                  <td><b>Email</b></td>
-                  <td>{email || ''}</td>
-                </tr>
-                <tr>
-                  <td><b>City</b></td>
-                  <td>{location?.name || ''}</td>
-                </tr>
-                <tr>
-                  <td><b>Company</b></td>
-                  <td>{company?.name || ''}</td>
-                </tr>
-                <tr>
-                  <td><b>Countty</b></td>
-                  <td>{location?.alias_region || ''}</td>
-                </tr>
-                <tr>
-                  <td><b>Job title</b></td>
-                  <td>{job_title || ''}</td>
-                </tr>
-                <tr>
-                  <td><b>Created</b></td>
-                  <td>{created || ''}</td>
-                </tr>
-              </tbody>
-            </Table>
+            <UserForm
+              // UI
+              loading={loading}
+              imageLoading={imageLoading}
+
+              // fields
+              id={id}
+              name={name}
+              image={image}
+              email={email}
+              surname={surname}
+              created={created}
+              modified={modified}
+              job_title={job_title}
+              lastLogin={lastLogin}
+
+              // checkboxes
+              status={status}
+              emailVerified={emailVerified}
+              emailSettings={emailSettings}
+              emailMarketing={emailMarketing}
+              emailJobApplication={emailJobApplication}
+
+              // actions
+              onChange={this.onChange}
+              deleteImage={this.deleteImage}
+              userEditSubmit={this.userEditSubmit}
+            />
           )
         }
       </div>
