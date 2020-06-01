@@ -3,7 +3,7 @@ import axios from 'axios';
 import { API_URL, subUrl } from 'Api/apiUrl';
 
 
-const uploadLogo = (formData, id) => {
+const uploadImage = (formData, id) => {
   const token = JSON.parse(localStorage.getItem('react-redux-user-data')).id;
 
   return axios.post(
@@ -17,4 +17,4 @@ const uploadLogo = (formData, id) => {
   );
 }
 
-export default uploadLogo;
+export default uploadImage;

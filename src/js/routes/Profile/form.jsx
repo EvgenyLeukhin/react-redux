@@ -1,12 +1,17 @@
 import React from 'react';
 import { Container, Row, Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
+import isEmpty from 'lodash/isEmpty';
+
 const UserForm = ({
   // fields
-  image, name, email, surname, job_title, status, emailVerified, emailJobApplication, emailMarketing, emailSettings, id, modified, created, lastLogin,
+  name, email, surname, job_title, status, emailVerified, emailJobApplication, emailMarketing, emailSettings, id, modified, created, lastLogin,
 
   // actions
   userEditSubmit, userDeleteSubmit, onChange, deleteImage, loading,
+
+  // image
+  image, fileInputImage, imageLoading, onUploadImage, onChangeImage,
 }) => {
   return (
     <Form
@@ -24,23 +29,39 @@ const UserForm = ({
 
               <Input
                 id="user-edit__image"
-                type="text"
+                type="url"
                 name="image"
-                value={image}
-                onChange={onChange}
+                value={!isEmpty(image) ? image.url : ''}
+                onChange={onChangeImage}
               />
 
               {
-                image ? (
+                (!isEmpty(image) && image.url) ? (
                   <img
-                    src={image}
+                    src={image.url}
                     className="img-fluid  user-avatar"
                     alt="Responsive image"
                   />
                 ) : <div className="no-image" />
               }
+
+              {/* Upload image file  */}
+              <input
+                id="edit-image"
+                type="file"
+                className="input-file-custom"
+                ref={fileInputImage}     // ref for forma data
+                onChange={onUploadImage} // upload request
+              />
             </FormGroup>
-            <Button color="danger" onClick={deleteImage} outline>Remove image</Button>
+            <Button
+              color="danger"
+              onClick={deleteImage}
+              disabled={!image.url}
+              outline
+            >
+              Remove image
+            </Button>
           </Col>
         </Row>
       </Container>
@@ -237,7 +258,6 @@ const UserForm = ({
 
         <div className="user-profile__btns">
           <Button
-            // disabled={!email || !password}
             color="primary"
             type="submit"
           >

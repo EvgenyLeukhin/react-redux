@@ -12,6 +12,10 @@ import UserForm from './form'
 
 import './styles.scss';
 
+import axios from 'axios';
+
+import { API_URL, subUrl } from 'Api/apiUrl';
+
 
 class Profile extends Component {
   fileInputImage = React.createRef();
@@ -31,14 +35,29 @@ class Profile extends Component {
     emailJobApplication: false, emailMarketing: false, emailSettings: false,
 
     // image
-    imageLoading: false,
+    image: { url: '', icon: '', color: '' }, imageLoading: false, uploadedImage: null,
   }
 
+
+  // CATCH ERRORS //
+  catchErrors = error => {
+    // redirect to login if 401 (request, response)
+    if (error.response.status === 401) {
+      localStorage.removeItem('react-redux-user-data');
+      this.props.history.push('/login');
+
+    } else {
+      console.log(error);
+      this.setState({ loading: false, error: true, errorText: error });
+    }
+  }
+
+
+  // ACTIONS //
   closeAlert = () => this.setState({ error: false });
 
   editClick = () => this.props.history.push('/profile-edit');
 
-  deleteImage = () => this.setState({ image: '' });
   deleteClick = () => alert('Delete');
 
   onChange = e => {
@@ -63,6 +82,23 @@ class Profile extends Component {
     });
   }
 
+
+  // IMAGE //
+  onChangeImage = e => this.setState({
+    image: { url: e.target.value }
+  });
+
+
+  deleteImage = () => this.setState({
+    image: { url: '', icon: '', color: '' },
+    imageLoading: false,
+    uploadedImage: null,
+  });
+
+
+  onUploadImage = e => {
+  }
+
   componentDidMount() {
     const userData = JSON.parse(localStorage.getItem('react-redux-user-data'));
     const userId = userData?.data?.userId;
@@ -71,52 +107,45 @@ class Profile extends Component {
 
     // get user data request
     getUserData(userId).then(res => {
-      console.log(res.data);
+      // console.log(res.data);
       this.setState({
         loading: false,
 
         // fields
-        id: res.data.id,
-        name: res.data.name,
-        surname: res.data.surname,
-        email: res.data.email,
-        job_title: res.data.job_title,
-        image: res.data.image.url,
-        created: res.data.created,
-        modified: res.data.modified,
-        lastLogin: res.data.lastLogin,
-        emailVerified: res.data.emailVerified,
+        id:                  res.data.id,
+        name:                res.data.name,
+        surname:             res.data.surname,
+        email:               res.data.email,
+        job_title:           res.data.job_title,
+        image:               res.data.image,
+        created:             res.data.created,
+        modified:            res.data.modified,
+        lastLogin:           res.data.lastLogin,
+        emailVerified:       res.data.emailVerified,
         emailJobApplication: res.data.emailJobApplication,
-        emailMarketing: res.data.emailMarketing,
-        emailVerified: res.data.emailVerified,
-        emailSettings: res.data.emailSettings,
-        status: res.data.status,
+        emailMarketing:      res.data.emailMarketing,
+        emailVerified:       res.data.emailVerified,
+        emailSettings:       res.data.emailSettings,
+        status:              res.data.status,
       })
     }).catch(error => {
-      console.log(error);
-
-      // 401 -> redirect to login
-      if (error.response.status === 401) {
-        localStorage.removeItem('react-redux-user-data');
-        this.props.history.push('/login');
-
-      // show error alert
-      } else {
-        this.setState({ loading: false, error: true, errorText: error });
-      }
+      this.catchErrors(error);
     })
   }
 
   render() {
     const {
       // UI
-      loading, error, errorText, imageLoading,
+      loading, error, errorText,
 
       // text fields
-      image, id, name, surname, email, job_title, created, modified, lastLogin,
+      id, name, surname, email, job_title, created, modified, lastLogin,
 
       // checkboxes
       emailVerified, status, emailJobApplication, emailMarketing, emailSettings,
+
+      // image
+      image, imageLoading,
     } = this.state;
 
     return (
@@ -140,12 +169,10 @@ class Profile extends Component {
             <UserForm
               // UI
               loading={loading}
-              imageLoading={imageLoading}
 
               // fields
               id={id}
               name={name}
-              image={image}
               email={email}
               surname={surname}
               created={created}
@@ -164,6 +191,13 @@ class Profile extends Component {
               onChange={this.onChange}
               deleteImage={this.deleteImage}
               userEditSubmit={this.userEditSubmit}
+
+              // image
+              image={image}
+              fileInputImage={this.fileInputImage}
+              onUploadImage={this.onUploadImage}
+              imageLoading={imageLoading}
+              onChangeImage={this.onChangeImage}
             />
           )
         }
