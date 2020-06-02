@@ -61,22 +61,17 @@ class Profile extends Component {
   }
 
   deleteUserSubmit = () => {
-    console.log(userImg);
-    // const userData = JSON.parse(localStorage.getItem('react-redux-user-data'));
-    // console.log(userData.data.id);
-    // this.setState({ deleteLoading: true });
-    // const { id } = this.state;
-    // deleteUser(id).then(() => {
-    //   setTimeout(() => {
-    //     // this.props.history.push('/login');
-    //     this.setState({ deleteLoading: false });
-    //     // localStorage.removeItem('react-redux-user-data');
-    //   }, 2000);
+    this.setState({ deleteLoading: true });
+    const { id } = this.state;
 
-    // }).catch(error => {
+    deleteUser(id).then(() => {
+      setTimeout(() => {
+        this.setState({ deleteLoading: false });
+        localStorage.removeItem('react-redux-user-data');
+        this.props.history.push('/login');
+      }, 2000);
 
-    //   // this.catchErrors(error);
-    // })
+    }).catch(error => this.catchErrors(error))
   }
 
   onChange = e => {

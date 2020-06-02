@@ -1,11 +1,13 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-
-import { userToken } from 'Consts/userData';
+import isEmpty from 'lodash/isEmpty';
 
 import Layout from 'Layout';
 
 const ProtectedRoute = ({ component: Component, ...rest }) => {
+  const userData = JSON.parse(localStorage.getItem('react-redux-user-data'));
+  const userToken = !isEmpty(userData) && userData.data.id;
+
   return (
     <Route
       {...rest}
