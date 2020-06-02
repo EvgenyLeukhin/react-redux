@@ -1,8 +1,11 @@
 import axios from 'axios';
-import { API_URL, subUrl } from 'Api/apiUrl';
+import isEmpty from 'lodash/isEmpty';
+import { API_URL, subUrl } from 'Consts/apiUrl';
 
 const editUser = state => {
-  const token = JSON.parse(localStorage.getItem('react-redux-user-data')).id;
+  const userData = JSON.parse(localStorage.getItem('react-redux-user-data'));
+  const userToken = !isEmpty(userData) && userData.data.id;
+
   const {
     id,
     name,
@@ -51,7 +54,7 @@ const editUser = state => {
     },
 
     {
-      headers: { Authorization: token }
+      headers: { Authorization: userToken }
     }
   );
 }

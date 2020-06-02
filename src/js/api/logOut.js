@@ -1,10 +1,11 @@
 import axios from 'axios';
+import isEmpty from 'lodash/isEmpty';
 
-import { API_URL, subUrl } from 'Api/apiUrl';
+import { API_URL, subUrl } from 'Consts/apiUrl';
 
 const logOut = () => {
   const userData = JSON.parse(localStorage.getItem('react-redux-user-data'));
-  const userToken = userData && userData.data.id;
+  const userToken = !isEmpty(userData) && userData.data.id;
 
   return axios.post(
     `${API_URL}/${subUrl}/users/logout`, {}, {

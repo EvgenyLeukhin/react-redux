@@ -55,12 +55,28 @@ class Profile extends Component {
   // ACTIONS //
   closeAlert = () => this.setState({ error: false });
 
-  editUserSubmit = () => {
+  editUserSubmit = e => {
+    e.preventDefault();
     this.setState({ editLoading: true });
   }
 
   deleteUserSubmit = () => {
-    this.setState({ deleteLoading: true });
+    console.log(userImg);
+    // const userData = JSON.parse(localStorage.getItem('react-redux-user-data'));
+    // console.log(userData.data.id);
+    // this.setState({ deleteLoading: true });
+    // const { id } = this.state;
+    // deleteUser(id).then(() => {
+    //   setTimeout(() => {
+    //     // this.props.history.push('/login');
+    //     this.setState({ deleteLoading: false });
+    //     // localStorage.removeItem('react-redux-user-data');
+    //   }, 2000);
+
+    // }).catch(error => {
+
+    //   // this.catchErrors(error);
+    // })
   }
 
   onChange = e => {

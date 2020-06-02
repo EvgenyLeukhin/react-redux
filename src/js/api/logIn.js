@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { API_URL, subUrl } from 'Api/apiUrl';
+import { API_URL, subUrl } from 'Consts/apiUrl';
 
 const logIn = (email, password) => {
   return axios.post(

@@ -1,10 +1,12 @@
 import axios from 'axios';
+import isEmpty from 'lodash/isEmpty';
 
-import { API_URL, subUrl } from 'Api/apiUrl';
+import { API_URL, subUrl } from 'Consts/apiUrl';
 
 
 const uploadImage = (formData, id) => {
-  const token = JSON.parse(localStorage.getItem('react-redux-user-data')).id;
+  const userData = JSON.parse(localStorage.getItem('react-redux-user-data'));
+  const userToken = !isEmpty(userData) && userData.data.id;
 
   return axios.post(
     `${API_URL}/${subUrl}/users/${id}/uploadImage`,
@@ -12,7 +14,7 @@ const uploadImage = (formData, id) => {
     formData,
 
     {
-      headers: { Authorization: token }
+      headers: { Authorization: userToken }
     }
   );
 }
