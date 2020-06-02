@@ -1,25 +1,18 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
-import { Alert, Button } from 'reactstrap';
+import { Alert } from 'reactstrap';
 
 // API //
 import getUserData from 'Api/getUserData';
-import deleteUser  from 'Api/deleteUser';
-import uploadImage from 'Api/uploadImage';
 import editUser    from 'Api/editUser';
+import deleteUser  from 'Api/deleteUser';
 
 import UserForm from './form'
 
 import './styles.scss';
 
-import axios from 'axios';
-
-import { API_URL, subUrl } from 'Api/apiUrl';
-
 
 class Profile extends Component {
-  fileInputImage = React.createRef();
-
   state = {
     // UI
     getLoading: false, editLoading: false, deleteLoading: false, error: false, errorText: '',
@@ -35,7 +28,7 @@ class Profile extends Component {
     emailJobApplication: false, emailMarketing: false, emailSettings: false,
 
     // image
-    image: { url: '', icon: '', color: '' }, imageLoading: false, uploadedImage: null,
+    image: { url: '', icon: '', color: '' }
   }
 
 
@@ -68,8 +61,6 @@ class Profile extends Component {
 
   deleteUserSubmit = () => {
     this.setState({ deleteLoading: true });
-
-
   }
 
   onChange = e => {
@@ -107,9 +98,6 @@ class Profile extends Component {
     uploadedImage: null,
   });
 
-
-  onUploadImage = e => {
-  }
 
   componentDidMount() {
     const userData = JSON.parse(localStorage.getItem('react-redux-user-data'));
@@ -157,7 +145,7 @@ class Profile extends Component {
       emailVerified, status, emailJobApplication, emailMarketing, emailSettings,
 
       // image
-      image, imageLoading,
+      image,
     } = this.state;
 
     return (
@@ -188,6 +176,7 @@ class Profile extends Component {
               id={id}
               name={name}
               email={email}
+              image={image}
               surname={surname}
               created={created}
               modified={modified}
@@ -205,12 +194,6 @@ class Profile extends Component {
               onChange={this.onChange}
               deleteUserSubmit={this.deleteUserSubmit}
               editUserSubmit={this.editUserSubmit}
-
-              // image
-              image={image}
-              fileInputImage={this.fileInputImage}
-              onUploadImage={this.onUploadImage}
-              imageLoading={imageLoading}
               onChangeImage={this.onChangeImage}
             />
           )

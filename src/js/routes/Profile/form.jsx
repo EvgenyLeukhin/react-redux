@@ -11,7 +11,7 @@ const UserForm = ({
   editUserSubmit, deleteUserSubmit, onChange, deleteImage, getLoading, editLoading, deleteLoading,
 
   // image
-  image, fileInputImage, imageLoading, onUploadImage, onChangeImage,
+  image, onChangeImage,
 }) => {
   return (
     <Form
@@ -44,15 +44,6 @@ const UserForm = ({
                   />
                 ) : <div className="no-image" />
               }
-
-              {/* Upload image file  */}
-              <input
-                id="edit-image"
-                type="file"
-                className="input-file-custom"
-                ref={fileInputImage}     // ref for forma data
-                onChange={onUploadImage} // upload request
-              />
             </FormGroup>
             <Button
               color="danger"
