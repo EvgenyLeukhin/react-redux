@@ -43,7 +43,9 @@ class Profiles extends Component {
         users: res.data,
         loading: false,
       });
-    })
+    }).catch(error => {
+      this.catchErrors(error);
+    });
   }
 
 

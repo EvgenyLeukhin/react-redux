@@ -21,8 +21,8 @@ class ProfileEdit extends Component {
     deleteModal: false,
 
     // fields
-    id: '', name: '', surname: '', email: '', job_title: '',
-    created: '', modified: '', lastLogin: '', image: '',
+    id: '', name: '', surname: '', email: '', job_title: '', admin: true, status: true,
+    created: '', modified: '', lastLogin: '', image: '', resData: {},
 
     // statuses
     emailVerified: false, status: false,
@@ -60,9 +60,17 @@ class ProfileEdit extends Component {
 
   editUserSubmit = e => {
     e.preventDefault();
+    const { state } = this;
+    const { history } = this.props;
+    history.push('/profile-show');
+
     this.setState({ editLoading: true });
 
-
+    editUser(state).then(() => {
+      this.setState({ editLoading: false });
+    }).catch(error => {
+      this.catchErrors(error);
+    });
   }
 
   deleteModalClose = () => this.setState({ deleteModal: false });
@@ -142,10 +150,13 @@ class ProfileEdit extends Component {
         emailVerified:       res.data.emailVerified,
         emailSettings:       res.data.emailSettings,
         status:              res.data.status,
+
+        // all data
+        resData:             res.data,
       })
     }).catch(error => {
       this.catchErrors(error);
-    })
+    });
   }
 
   render() {
@@ -169,11 +180,7 @@ class ProfileEdit extends Component {
           <title>React-Redux | Edit Profile</title>
         </Helmet>
 
-        <Alert
-          color="danger"
-          isOpen={error}
-          toggle={this.closeAlert}
-        >
+        <Alert color="danger" isOpen={error} toggle={this.closeAlert}>
           {`${errorText}` || ''}
         </Alert>
 
@@ -205,28 +212,16 @@ class ProfileEdit extends Component {
               editLoading={editLoading}
 
               // fields
-              id={id}
-              name={name}
-              email={email}
-              image={image}
-              surname={surname}
-              created={created}
-              modified={modified}
-              job_title={job_title}
-              lastLogin={lastLogin}
+              id={id} name={name} email={email} image={image} surname={surname} created={created}
+              modified={modified} job_title={job_title} lastLogin={lastLogin}
 
               // checkboxes
-              status={status}
-              emailVerified={emailVerified}
-              emailSettings={emailSettings}
-              emailMarketing={emailMarketing}
-              emailJobApplication={emailJobApplication}
+              status={status} emailVerified={emailVerified} emailSettings={emailSettings}
+              emailMarketing={emailMarketing} emailJobApplication={emailJobApplication}
 
               // actions
-              onChange={this.onChange}
-              deleteModalOpen={this.deleteModalOpen}
-              editUserSubmit={this.editUserSubmit}
-              onChangeImage={this.onChangeImage}
+              onChange={this.onChange} deleteModalOpen={this.deleteModalOpen}
+              editUserSubmit={this.editUserSubmit} onChangeImage={this.onChangeImage}
               deleteImage={this.deleteImage}
             />
           )
