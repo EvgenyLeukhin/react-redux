@@ -61,6 +61,8 @@ class ProfileEdit extends Component {
   editUserSubmit = e => {
     e.preventDefault();
     this.setState({ editLoading: true });
+
+
   }
 
   deleteModalClose = () => this.setState({ deleteModal: false });
@@ -179,7 +181,6 @@ class ProfileEdit extends Component {
           className="delete-modal"
           overlayClassName="delete-modal__overlay"
           isOpen={deleteModal}
-          // style={customStyles}
           onRequestClose={this.deleteModalClose}
         >
           {
