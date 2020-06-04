@@ -7,12 +7,12 @@ import getUserData from 'Api/getUserData';
 import editUser    from 'Api/editUser';
 import deleteUser  from 'Api/deleteUser';
 
-import UserForm from './form'
+import EditForm from './form'
 
 import './styles.scss';
 
 
-class Profile extends Component {
+class ProfileEdit extends Component {
   state = {
     // UI
     getLoading: false, editLoading: false, deleteLoading: false, error: false, errorText: '',
@@ -103,12 +103,11 @@ class Profile extends Component {
   });
 
 
-  deleteImage = () => this.setState({
-    image: { url: '', icon: '', color: '' },
-    imageLoading: false,
-    uploadedImage: null,
-  });
-
+  deleteImage = () => {
+    this.setState({
+      image: { url: '', icon: '', color: '' },
+    });
+  }
 
   componentDidMount() {
     const userData = JSON.parse(localStorage.getItem('react-redux-user-data'));
@@ -162,7 +161,7 @@ class Profile extends Component {
     return (
       <div className="user-profile">
         <Helmet>
-          <title>React-Redux | Profile</title>
+          <title>React-Redux | Edit Profile</title>
         </Helmet>
 
         <Alert
@@ -173,11 +172,11 @@ class Profile extends Component {
           {`${errorText}` || ''}
         </Alert>
 
-        <h1>User profile</h1>
+        <h1>Edit profile</h1>
 
         {
           getLoading ? 'Loading...' : (
-            <UserForm
+            <EditForm
               // UI
               getLoading={getLoading}
               editLoading={editLoading}
@@ -206,6 +205,7 @@ class Profile extends Component {
               deleteUserSubmit={this.deleteUserSubmit}
               editUserSubmit={this.editUserSubmit}
               onChangeImage={this.onChangeImage}
+              deleteImage={this.deleteImage}
             />
           )
         }
@@ -214,4 +214,4 @@ class Profile extends Component {
   }
 }
 
-export default Profile;
+export default ProfileEdit;

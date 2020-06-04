@@ -3,7 +3,7 @@ import { Container, Row, Col, Button, Form, FormGroup, Label, Input, Spinner } f
 
 import isEmpty from 'lodash/isEmpty';
 
-const UserForm = ({
+const EditForm = ({
   // fields
   name, email, surname, job_title, status, emailVerified, emailJobApplication, emailMarketing, emailSettings, id, modified, created, lastLogin,
 
@@ -261,4 +261,4 @@ const UserForm = ({
   )
 }
 
-export default UserForm;
+export default EditForm;
