@@ -96,6 +96,22 @@ class ProfileShow extends Component {
                     <td>{userData?.job_title}</td>
                   </tr>
                   <tr>
+                    <td><b>Email verified</b></td>
+                    <td>{userData?.emailVerified ? 'Yes' : 'No'}</td>
+                  </tr>
+                  <tr>
+                    <td><b>Email job application</b></td>
+                    <td>{userData?.emailJobApplication ? 'Yes' : 'No'}</td>
+                  </tr>
+                  <tr>
+                    <td><b>Email marketing</b></td>
+                    <td>{userData?.emailMarketing ? 'Yes' : 'No'}</td>
+                  </tr>
+                  <tr>
+                    <td><b>Email settings</b></td>
+                    <td>{userData?.emailSettings ? 'Yes' : 'No'}</td>
+                  </tr>
+                  <tr>
                     <td><b>Created</b></td>
                     <td>{userData?.created}</td>
                   </tr>

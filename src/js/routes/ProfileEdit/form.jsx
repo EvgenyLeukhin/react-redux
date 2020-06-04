@@ -157,7 +157,7 @@ const EditForm = ({
                   type="checkbox"
                   checked={emailJobApplication}
                 />
-                Email Job Application
+                Email job application
               </Label>
             </FormGroup>
 

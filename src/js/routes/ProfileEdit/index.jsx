@@ -21,7 +21,7 @@ class ProfileEdit extends Component {
     deleteModal: false,
 
     // fields
-    id: '', name: '', surname: '', email: '', job_title: '', admin: true, status: true,
+    id: '', name: '', surname: '', email: '', job_title: '', admin: true,
     created: '', modified: '', lastLogin: '', image: '', resData: {},
 
     // statuses
@@ -62,12 +62,14 @@ class ProfileEdit extends Component {
     e.preventDefault();
     const { state } = this;
     const { history } = this.props;
-    history.push('/profile-show');
 
     this.setState({ editLoading: true });
 
     editUser(state).then(() => {
-      this.setState({ editLoading: false });
+      setTimeout(() => {
+        this.setState({ editLoading: false });
+        history.push('/profile-show');
+      }, 500);
     }).catch(error => {
       this.catchErrors(error);
     });
