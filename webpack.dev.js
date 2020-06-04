@@ -39,6 +39,7 @@ module.exports = {
     extensions: ['.js', '.jsx'], // for React
     alias: {
       Api:        path.resolve(__dirname, 'src', 'js/api'),
+      Store:      path.resolve(__dirname, 'src', 'js/store'),
       Components: path.resolve(__dirname, 'src', 'js/components'),
       Routes:     path.resolve(__dirname, 'src', 'js/routes'),
       Layout:     path.resolve(__dirname, 'src', 'js/layout'),

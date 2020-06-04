@@ -6,13 +6,13 @@ import ProtectedRoute from 'Components/ProtectedRoute';
 import Layout from 'Layout';
 
 // import routes with lazy load
-const Login       = lazy(() => import('Routes/Login'));
-const Home        = lazy(() => import('Routes/Home'));
-const ProfileAdd  = lazy(() => import('Routes/ProfileAdd'));
-const ProfileShow = lazy(() => import('Routes/ProfileShow'));
-const ProfileEdit = lazy(() => import('Routes/ProfileEdit'));
-const Profiles    = lazy(() => import('Routes/Profiles'));
-const Page404     = lazy(() => import('Routes/Page404'));
+const Login        = lazy(() => import('Routes/Login'));
+const Home         = lazy(() => import('Routes/Home'));
+const ProfileAdd   = lazy(() => import('Routes/ProfileAdd'));
+const ProfileShow  = lazy(() => import('Routes/ProfileShow'));
+const ProfileEdit  = lazy(() => import('Routes/ProfileEdit'));
+const ProfilesList = lazy(() => import('Routes/ProfilesList'));
+const Page404      = lazy(() => import('Routes/Page404'));
 
 
 const Routes = () => {
@@ -28,7 +28,7 @@ const Routes = () => {
         <ProtectedRoute path='/profile-add'  component={ProfileAdd} />
         <ProtectedRoute path='/profile-edit' component={ProfileEdit} />
         <ProtectedRoute path='/profile-show' component={ProfileShow} />
-        <ProtectedRoute path='/profiles'     component={Profiles} />
+        <ProtectedRoute path='/profiles'     component={ProfilesList} />
 
         {/* Unknown route */}
         <ProtectedRoute path="*" component={Page404} />

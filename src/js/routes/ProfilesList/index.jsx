@@ -8,7 +8,7 @@ import getUsers from 'Api/getUsers';
 import columns from './columns';
 
 
-class Profiles extends Component {
+class ProfilesList extends Component {
   state = {
     users: [],
     loading: false,
@@ -81,4 +81,4 @@ class Profiles extends Component {
   }
 }
 
-export default Profiles;
+export default ProfilesList;
