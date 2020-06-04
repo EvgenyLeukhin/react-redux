@@ -3,21 +3,19 @@ import isEmpty from 'lodash/isEmpty';
 
 import { API_URL, subUrl } from 'Consts/apiUrl';
 
-const getUsers = () => {
+const addUser = (name, surname, password, email) => {
   const userData = JSON.parse(localStorage.getItem('react-redux-user-data'));
   const userToken = !isEmpty(userData) && userData.data.id;
 
-  return axios.get(
-    `${API_URL}/${subUrl}/users/searchExtra`,
+  return axios.post(
+    `${API_URL}/${subUrl}/users`,
+
+    { name, surname, password, email },
+
     {
-      params: {
-        filter: {
-          order: 'id DESC',
-        }
-      },
       headers: { Authorization: userToken }
     }
-  )
+  );
 }
 
-export default getUsers;
+export default addUser;
