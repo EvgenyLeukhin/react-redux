@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import { Alert } from 'reactstrap';
+import Modal from 'react-modal';
+import { Button, Spinner, ButtonGroup } from 'reactstrap';
 
 // API //
 import getUserData from 'Api/getUserData';
@@ -16,6 +18,7 @@ class ProfileEdit extends Component {
   state = {
     // UI
     getLoading: false, editLoading: false, deleteLoading: false, error: false, errorText: '',
+    deleteModal: false,
 
     // fields
     id: '', name: '', surname: '', email: '', job_title: '',
@@ -60,17 +63,17 @@ class ProfileEdit extends Component {
     this.setState({ editLoading: true });
   }
 
+  deleteModalClose = () => this.setState({ deleteModal: false });
+  deleteModalOpen  = () => this.setState({ deleteModal: true });
+
   deleteUserSubmit = () => {
     this.setState({ deleteLoading: true });
     const { id } = this.state;
 
     deleteUser(id).then(() => {
-      setTimeout(() => {
-        this.setState({ deleteLoading: false });
-        localStorage.removeItem('react-redux-user-data');
-        this.props.history.push('/login');
-      }, 2000);
-
+      this.setState({ deleteLoading: false });
+      localStorage.removeItem('react-redux-user-data');
+      this.props.history.push('/login');
     }).catch(error => this.catchErrors(error))
   }
 
@@ -146,7 +149,7 @@ class ProfileEdit extends Component {
   render() {
     const {
       // UI
-      getLoading, editLoading, deleteLoading, error, errorText,
+      getLoading, editLoading, deleteLoading, error, errorText, deleteModal,
 
       // text fields
       id, name, surname, email, job_title, created, modified, lastLogin,
@@ -159,7 +162,7 @@ class ProfileEdit extends Component {
     } = this.state;
 
     return (
-      <div className="user-profile">
+      <div className="edit-profile">
         <Helmet>
           <title>React-Redux | Edit Profile</title>
         </Helmet>
@@ -172,15 +175,33 @@ class ProfileEdit extends Component {
           {`${errorText}` || ''}
         </Alert>
 
+        <Modal
+          className="delete-modal"
+          overlayClassName="delete-modal__overlay"
+          isOpen={deleteModal}
+          // style={customStyles}
+          onRequestClose={this.deleteModalClose}
+        >
+          {
+            !deleteLoading ? (
+              <>
+                <h2>Are you sure?</h2>
+                <ButtonGroup>
+                  <Button color="secondary" onClick={this.deleteModalClose}>Cancel</Button>
+                  <Button color="danger" onClick={this.deleteUserSubmit}>Delete</Button>
+                </ButtonGroup>
+              </>
+            ) : <Spinner />
+          }
+        </Modal>
+
         <h1>Edit profile</h1>
 
         {
           getLoading ? 'Loading...' : (
             <EditForm
               // UI
-              getLoading={getLoading}
               editLoading={editLoading}
-              deleteLoading={deleteLoading}
 
               // fields
               id={id}
@@ -202,7 +223,7 @@ class ProfileEdit extends Component {
 
               // actions
               onChange={this.onChange}
-              deleteUserSubmit={this.deleteUserSubmit}
+              deleteModalOpen={this.deleteModalOpen}
               editUserSubmit={this.editUserSubmit}
               onChangeImage={this.onChangeImage}
               deleteImage={this.deleteImage}

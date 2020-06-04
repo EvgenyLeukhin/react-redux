@@ -8,7 +8,7 @@ const EditForm = ({
   name, email, surname, job_title, status, emailVerified, emailJobApplication, emailMarketing, emailSettings, id, modified, created, lastLogin,
 
   // actions
-  editUserSubmit, deleteUserSubmit, onChange, deleteImage, getLoading, editLoading, deleteLoading,
+  editUserSubmit, deleteModalOpen, onChange, deleteImage, editLoading,
 
   // image
   image, onChangeImage,
@@ -17,7 +17,7 @@ const EditForm = ({
     <Form
       action=""
       method="post"
-      className="user-profile__form"
+      className="edit-profile__form"
       onSubmit={editUserSubmit}
     >
       <Container>
@@ -25,7 +25,7 @@ const EditForm = ({
         <Row>
           <Col xs="12">
             <FormGroup>
-              <Label for="user-edit__name">Image url</Label>
+              <Label for="user-edit__name">Paste image url</Label>
 
               <Input
                 id="user-edit__image"
@@ -247,13 +247,13 @@ const EditForm = ({
 
         <hr />
 
-        <div className="user-profile__btns">
+        <div className="edit-profile__btns">
           <Button color="primary" type="submit">
             { editLoading ? <Spinner /> : 'Save changes' }
           </Button>
 
-          <Button color="danger" onClick={deleteUserSubmit} outline>
-            { deleteLoading ? <Spinner /> : 'Delete user' }
+          <Button color="danger" onClick={deleteModalOpen} outline>
+            Delete user
           </Button>
         </div>
       </Container>
