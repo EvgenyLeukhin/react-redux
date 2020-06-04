@@ -12,6 +12,7 @@ const ProfileAdd   = lazy(() => import('Routes/ProfileAdd'));
 const ProfileShow  = lazy(() => import('Routes/ProfileShow'));
 const ProfileEdit  = lazy(() => import('Routes/ProfileEdit'));
 const ProfilesList = lazy(() => import('Routes/ProfilesList'));
+const ReduxTest    = lazy(() => import('Routes/ReduxTest'));
 const Page404      = lazy(() => import('Routes/Page404'));
 
 
@@ -29,6 +30,7 @@ const Routes = () => {
         <ProtectedRoute path='/profile-edit' component={ProfileEdit} />
         <ProtectedRoute path='/profile-show' component={ProfileShow} />
         <ProtectedRoute path='/profiles'     component={ProfilesList} />
+        <ProtectedRoute path='/redux-test'   component={ReduxTest} />
 
         {/* Unknown route */}
         <ProtectedRoute path="*" component={Page404} />

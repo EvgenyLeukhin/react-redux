@@ -1,8 +1,8 @@
-import profilesListState from './profilesListState.json'; // initialState
+import reduxTestState from './reduxTestState.json'; // initialState
 
 import { PLUS, MINUS } from 'Store/types';
 
-const profilesListReducer = (state = profilesListState, action) => {
+const reduxTestReducer = (state = reduxTestState, action) => {
   switch (action.type) {
 
     // actions //
@@ -13,4 +13,4 @@ const profilesListReducer = (state = profilesListState, action) => {
   }
 };
 
-export default profilesListReducer;
+export default reduxTestReducer;

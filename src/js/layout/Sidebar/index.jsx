@@ -19,6 +19,7 @@ const Sidebar = ({ showNav, onHideNav }) => {
     <NavLink activeStyle={styles} onClick={onHideNav} to="/profile-show">Show current profile</NavLink>,
     <NavLink activeStyle={styles} onClick={onHideNav} to="/profile-edit">Edit or delete current profile</NavLink>,
     <NavLink activeStyle={styles} onClick={onHideNav} to="/profiles">Profiles list</NavLink>,
+    <NavLink activeStyle={styles} onClick={onHideNav} to="/redux-test">Redux test</NavLink>,
     <NavLink activeStyle={styles} onClick={onHideNav} to="/123">404 page</NavLink>
   ];
 
