@@ -1,5 +1,5 @@
 {
-  "name": "react-redux",
+  "name": "react--redux",
   "version": "1.0.0",
   "description": "React template with basic logic and Redux on custom webpack builder",
   "main": "package.json",
@@ -38,11 +38,14 @@
     "react-headroom": "^3.0.0",
     "react-helmet": "^6.0.0",
     "react-modal": "^3.11.2",
+    "react-redux": "^7.2.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-simple-sidenav": "^2.0.0",
     "react-table": "^6.10.3",
-    "reactstrap": "^8.4.1"
+    "react-thunk": "^1.0.0",
+    "reactstrap": "^8.4.1",
+    "redux": "^4.0.5"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",

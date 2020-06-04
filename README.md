@@ -23,19 +23,19 @@ Error: ENOSPC: System limit for number of file watchers reached, watch '/home/fo
 * Folder managment +++
 * Bootstrap 4, reactstrap +++
 * Work with some API (without Redux) +++
-- Layout components +++
+* Layout components +++
 * react-sidebar +++
 
 
-* Work with data (CRUD)
-* Show some data-list
-* react-table
+* Work with data (CRUD) +++
+* Show some data-list +++
+* react-table +++
 
 ---
+* Redux
 * eslint
 * proptypes
 * browser-sync
 * fix favicons prod problem
-* Redux
-* Firebase
+* Firebase API
 
