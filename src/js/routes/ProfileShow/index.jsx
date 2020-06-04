@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
-import { Table } from 'reactstrap';
+import { Table, Button } from 'reactstrap';
 
 import getUserData from 'Api/getUserData';
 
@@ -28,6 +28,11 @@ class ProfileShow extends Component {
     })
   }
 
+  goToEdit = () => {
+    const { history } = this.props;
+    history.push('/profile-edit');
+  }
+
   render() {
     const { userData, loading } = this.state;
 
@@ -49,6 +54,7 @@ class ProfileShow extends Component {
                   src={userData?.image?.url} alt={userData?.image?.url}
                 />
                 <h4>{`${userData?.name} ${userData?.surname}`}</h4>
+                <Button color="primary" onClick={this.goToEdit}>Edit</Button>
               </div>
 
               <hr/>
