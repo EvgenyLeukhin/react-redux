@@ -15,7 +15,8 @@ const Sidebar = ({ showNav, onHideNav }) => {
   const navItems = [
     <NavLink activeStyle={styles} onClick={onHideNav} to="/" exact>Home</NavLink>,
     <NavLink activeStyle={styles} onClick={onHideNav} to="/login">Login</NavLink>,
-    <NavLink activeStyle={styles} onClick={onHideNav} to="/profile">Profile</NavLink>,
+    <NavLink activeStyle={styles} onClick={onHideNav} to="/profile">Edit profile</NavLink>,
+    <NavLink activeStyle={styles} onClick={onHideNav} to="/profiles">Profiles</NavLink>,
     <NavLink activeStyle={styles} onClick={onHideNav} to="/page-1">Page 1</NavLink>,
     <NavLink activeStyle={styles} onClick={onHideNav} to="/page-2">Page 2</NavLink>,
     <NavLink activeStyle={styles} onClick={onHideNav} to="/123">404 page</NavLink>

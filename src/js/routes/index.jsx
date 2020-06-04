@@ -9,6 +9,7 @@ import Layout from 'Layout';
 const Login       = lazy(() => import('Routes/Login'));
 const Home        = lazy(() => import('Routes/Home'));
 const Profile     = lazy(() => import('Routes/Profile'));
+const Profiles    = lazy(() => import('Routes/Profiles'));
 const Page1       = lazy(() => import('Routes/Page1'));
 const Page2       = lazy(() => import('Routes/Page2'));
 const Page404     = lazy(() => import('Routes/Page404'));
@@ -23,10 +24,11 @@ const Routes = () => {
         <Route path='/login' component={Login} />
 
         {/* App protected routes */}
-        <ProtectedRoute path='/' exact  component={Home} />
-        <ProtectedRoute path='/profile' component={Profile} />
-        <ProtectedRoute path='/page-1'  component={Page1} />
-        <ProtectedRoute path='/page-2'  component={Page2} />
+        <ProtectedRoute path='/' exact   component={Home} />
+        <ProtectedRoute path='/profile'  component={Profile} />
+        <ProtectedRoute path='/profiles' component={Profiles} />
+        <ProtectedRoute path='/page-1'   component={Page1} />
+        <ProtectedRoute path='/page-2'   component={Page2} />
 
         {/* Unknown route */}
         <ProtectedRoute path="*" component={Page404} />
