@@ -1,7 +1,18 @@
-export const PLUS = 'PLUS';
+// SHOULD BE NAMED-SEPPARATED
+
+// REDUX TEST
+export const PLUS  = 'PLUS';
 export const MINUS = 'MINUS';
+
+// PROFILES LIST
+export const PROFILES_PLUS = 'PROFILES_PLUS';
+export const PROFILES_MINUS = 'PROFILES_MINUS';
+export const FETCH_PROFILES = 'FETCH_PROFILES';
 
 export default {
   PLUS,
   MINUS,
+  PROFILES_PLUS,
+  PROFILES_MINUS,
+  FETCH_PROFILES,
 };

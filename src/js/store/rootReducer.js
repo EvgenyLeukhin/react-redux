@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
 
-import reduxTestReducer from 'Routes/ReduxTest/store/reduxTestReducer';
+import reduxTestReducer    from 'Routes/ReduxTest/store/reduxTestReducer';
+import profilesListReducer from 'Routes/ProfilesList/store/profilesListReducer';
 
 export default combineReducers({
-  reduxTest: reduxTestReducer,
+  reduxTest:    reduxTestReducer,
+  profilesList: profilesListReducer,
 });
