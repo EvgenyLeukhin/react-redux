@@ -12,6 +12,7 @@ export const FETCH  = 'FETCH_';
 
 // ENTETIES
 export const PROFILES_LIST = 'PROFILES_LIST';
+export const PROFILE_SHOW = 'PROFILE_SHOW';
 
 // REQUESTS
 export const START    = '_START';
@@ -19,13 +20,3 @@ export const SUCCESS  = '_SUCCESS';
 export const ERROR    = '_ERROR';
 export const REDIRECT = '_REDIRECT';
 
-export default {
-  // REDUX TEST
-  PLUS, MINUS,
-
-  // ACTIONS
-  FETCH,
-
-  // REQUESTS
-  START, SUCCESS, ERROR, REDIRECT,
-};
