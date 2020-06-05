@@ -9,9 +9,8 @@ import cln from 'classnames';
 import './styles.scss';
 
 const Header = ({ logout, loading, toggleSidebar, sidebarIsOpen }) => {
-  const userData = JSON.parse(localStorage.getItem('react-redux-user-data'));
-  const userName = `${userData?.data?.user?.name} ${userData?.data?.user?.surname}`;
-  const userImg = userData?.data?.user?.image?.url;
+  const userName = localStorage.getItem('react-redux-user-data-fullname');
+  const userImg = localStorage.getItem('react-redux-user-data-avatar');
 
   return (
     <Headroom className={cln({ 'sidebarIsOpen': sidebarIsOpen })}>

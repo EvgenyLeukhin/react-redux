@@ -40,6 +40,9 @@ class ProfileEdit extends Component {
     // redirect to login if 401 (request, response)
     if (error.response.status === 401) {
       localStorage.removeItem('react-redux-user-data');
+      localStorage.removeItem('react-redux-user-data-fullname');
+      localStorage.removeItem('react-redux-user-data-avatar');
+
       this.props.history.push('/login');
 
     } else {
@@ -66,8 +69,15 @@ class ProfileEdit extends Component {
     this.setState({ editLoading: true });
 
     editUser(state).then(() => {
+      const { name, surname, image } = this.state;
+
+      const fullName = `${name} ${surname}`;
+      const avatar = image.url;
+
       setTimeout(() => {
         this.setState({ editLoading: false });
+        localStorage.setItem('react-redux-user-data-fullname', fullName);
+        localStorage.setItem('react-redux-user-data-avatar', avatar);
         history.push('/profile-show');
       }, 500);
     }).catch(error => {
@@ -84,7 +94,13 @@ class ProfileEdit extends Component {
 
     deleteUser(id).then(() => {
       this.setState({ deleteLoading: false });
+
+      // clear localStorage
       localStorage.removeItem('react-redux-user-data');
+      localStorage.removeItem('react-redux-user-data-fullname');
+      localStorage.removeItem('react-redux-user-data-avatar');
+
+      // redirect
       this.props.history.push('/login');
     }).catch(error => this.catchErrors(error))
   }

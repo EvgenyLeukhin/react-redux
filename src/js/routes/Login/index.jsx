@@ -35,6 +35,11 @@ class Login extends Component {
       .then(res => {
         // save user-data obj to localStorage
         localStorage.setItem('react-redux-user-data', JSON.stringify(res));
+        const { name, surname, image } = res.data.user;
+        const fullName = `${name} ${surname}`;
+        const avatar = image.url;
+        localStorage.setItem('react-redux-user-data-fullname', fullName);
+        localStorage.setItem('react-redux-user-data-avatar', avatar);
 
         this.setState({ success: true });
 

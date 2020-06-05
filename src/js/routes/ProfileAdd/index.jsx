@@ -25,6 +25,9 @@ class ProfileAdd extends Component {
     // redirect to login if 401 (request, response)
     if (error.response.status === 401) {
       localStorage.removeItem('react-redux-user-data');
+      localStorage.removeItem('react-redux-user-data-fullname');
+      localStorage.removeItem('react-redux-user-data-avatar');
+
       this.props.history.push('/login');
 
     } else {

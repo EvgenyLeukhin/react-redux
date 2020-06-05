@@ -35,7 +35,11 @@ class Layout extends Component {
 
       // if error
       .catch(error => {
+        // clear localStorage
         localStorage.removeItem('react-redux-user-data');
+        localStorage.removeItem('react-redux-user-data-fullname');
+        localStorage.removeItem('react-redux-user-data-avatar');
+
         console.log(error);
         this.setState({
           redirect: true,
