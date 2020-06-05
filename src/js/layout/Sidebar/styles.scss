@@ -1,4 +1,11 @@
+@import "../../../static/scss/vars";
+
 .headroom-wrapper + aside {
+
+  & > nav {
+    overflow-y: scroll;
+    height: calc(100vh - #{$footer-height}) !important;
+  }
 
   ul {
     a.active {
