@@ -1,3 +1,5 @@
 {
-  "counter": 100
+  "profiles": [],
+  "loading": false,
+  "error": false
 }

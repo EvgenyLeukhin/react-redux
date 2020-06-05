@@ -1,10 +1,18 @@
+// ADD REDUX TO HOC
 import { connect } from 'react-redux';
 import ProfilesList from './page';
 
-import { plus, minus } from './store/profilesListActions';
+// IMPORT ACTIONS
+import { fetchProfiles } from './store/profilesListActions';
 
+// GET DATA FROME THE STORE
 const mapStateToProps = store => {
-  return { counter: store.profilesList.counter };
+  return {
+    profiles: store.profilesList.profiles,
+    loading:  store.profilesList.loading,
+    error:    store.profilesList.error,
+  };
 };
 
-export default connect(mapStateToProps, { plus, minus })(ProfilesList);
+// mapStateToProps, mapDispatchToProps
+export default connect(mapStateToProps, { fetchProfiles })(ProfilesList);
