@@ -11,6 +11,11 @@ class ProfileShow extends Component {
     this.props.fetchUserData();
   }
 
+  goToEdit = () => {
+    const { history } = this.props;
+    history.push('/profile-edit');
+  }
+
   render() {
     const { userData, loading, error } = this.props;
 
