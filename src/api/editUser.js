@@ -1,7 +1,7 @@
 import axios from 'axios';
 import isEmpty from 'lodash/isEmpty';
 
-import { API_URL, subUrl } from 'Consts/apiUrl';
+import API_URL from 'Consts/apiUrl';
 
 const editUser = state => {
   const userData = JSON.parse(localStorage.getItem('react-redux-user-data'));
@@ -15,7 +15,7 @@ const editUser = state => {
   } = state.resData;
 
   return axios.patch(
-    `${API_URL}/${subUrl}/users/${id}`,
+    `${API_URL}/users/${id}`,
 
     {
       name,

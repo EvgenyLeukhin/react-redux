@@ -4,7 +4,7 @@ import {
   PROFILES_LIST, START, SUCCESS, ERROR, FETCH,
 } from 'Store/types';
 
-import { API_URL, subUrl } from 'Consts/apiUrl';
+import API_URL from 'Consts/apiUrl';
 
 // request
 export const fetchProfiles = () => {
@@ -15,7 +15,7 @@ export const fetchProfiles = () => {
     dispatch(fetchProfilesBegin());
 
     return axios.get(
-      `${API_URL}/${subUrl}/users/searchExtra`,
+      `${API_URL}/users/searchExtra`,
       {
         params: {
           filter: { order: 'id DESC' }

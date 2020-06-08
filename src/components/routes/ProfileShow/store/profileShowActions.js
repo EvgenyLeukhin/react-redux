@@ -4,7 +4,7 @@ import {
   PROFILE_SHOW, START, SUCCESS, ERROR, FETCH,
 } from 'Store/types';
 
-import { API_URL, subUrl } from 'Consts/apiUrl';
+import API_URL from 'Consts/apiUrl';
 
 // request
 export const fetchUserData = () => {
@@ -16,7 +16,7 @@ export const fetchUserData = () => {
     dispatch(fetchUserDataBegin());
 
     return axios.get(
-      `${API_URL}/${subUrl}/users/${userId}`,
+      `${API_URL}/users/${userId}`,
       {
         headers: { Authorization: userToken }
       }

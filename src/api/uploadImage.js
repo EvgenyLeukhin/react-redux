@@ -1,7 +1,7 @@
 import axios from 'axios';
 import isEmpty from 'lodash/isEmpty';
 
-import { API_URL, subUrl } from 'Consts/apiUrl';
+import API_URL from 'Consts/apiUrl';
 
 
 const uploadImage = (formData, id) => {
@@ -9,7 +9,7 @@ const uploadImage = (formData, id) => {
   const userToken = !isEmpty(userData) && userData.data.id;
 
   return axios.post(
-    `${API_URL}/${subUrl}/users/${id}/uploadImage`,
+    `${API_URL}/users/${id}/uploadImage`,
 
     formData,
 

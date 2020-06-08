@@ -1,14 +1,14 @@
 import axios from 'axios';
 import isEmpty from 'lodash/isEmpty';
 
-import { API_URL, subUrl } from 'Consts/apiUrl';
+import API_URL from 'Consts/apiUrl';
 
 const addUser = (name, surname, password, email) => {
   const userData = JSON.parse(localStorage.getItem('react-redux-user-data'));
   const userToken = !isEmpty(userData) && userData.data.id;
 
   return axios.post(
-    `${API_URL}/${subUrl}/users`,
+    `${API_URL}/users`,
 
     { name, surname, password, email },
 
