@@ -33,22 +33,25 @@ Error: ENOSPC: System limit for number of file watchers reached, watch '/home/fo
 
 ---
 * Redux
-* eslint
-* proptypes
-* browser-sync
 * fix favicons prod problem
 * Firebase API
 
-// dot env NODE.env
-// структура папок как react-app
-// reducer - хранить в store или внутри компонентов
-// utils - перебросить в routes
+// utils - перебросить в routes +++
+// структура папок как react-app +++
+
 // redux test убрать
-// api - поддиректории
 // рефакторинг SIdebar
+// browser-sync
+// 404 design
+
+
+// proptypes
+// eslint
+// dot env NODE.env
+// reducer - хранить в store или внутри компонентов
+// api - поддиректории 
 // path profile/add
 // location.reload
 // isEmpty no use
 // favicons
 // eslint 
-// 404 design

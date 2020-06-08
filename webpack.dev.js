@@ -40,7 +40,6 @@ module.exports = {
     alias: {
       Api:        path.resolve(__dirname, 'src', 'api'),
       Store:      path.resolve(__dirname, 'src', 'store'),
-      Components: path.resolve(__dirname, 'src', 'components'),
       Routes:     path.resolve(__dirname, 'src', 'components/routes'),
       Layout:     path.resolve(__dirname, 'src', 'components/layout'),
       Consts:     path.resolve(__dirname, 'src', 'consts'),

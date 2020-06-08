@@ -35,17 +35,16 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'], // for React
     alias: {
-      Api:        path.resolve(__dirname, 'src', 'js/api'),
-      Store:      path.resolve(__dirname, 'src', 'js/store'),
-      Components: path.resolve(__dirname, 'src', 'js/components'),
-      Routes:     path.resolve(__dirname, 'src', 'js/routes'),
-      Layout:     path.resolve(__dirname, 'src', 'js/layout'),
-      Consts:     path.resolve(__dirname, 'src', 'js/consts'),
-      Utils:      path.resolve(__dirname, 'src', 'js/utils'),
-      Images:     path.resolve(__dirname, 'src', 'static/img'),
-      Styles:     path.resolve(__dirname, 'src', 'static/scss'),
-      Fonts:      path.resolve(__dirname, 'src', 'static/fonts'),
-      Images:     path.resolve(__dirname, 'src', 'static/img'),
+      Api:        path.resolve(__dirname, 'src', 'api'),
+      Store:      path.resolve(__dirname, 'src', 'store'),
+      Routes:     path.resolve(__dirname, 'src', 'components/routes'),
+      Layout:     path.resolve(__dirname, 'src', 'components/layout'),
+      Consts:     path.resolve(__dirname, 'src', 'consts'),
+
+      // static files
+      Images:     path.resolve(__dirname, 'static', 'img'),
+      Styles:     path.resolve(__dirname, 'static', 'scss'),
+      Fonts:      path.resolve(__dirname, 'static', 'fonts'),
     }
   },
 
@@ -132,7 +131,7 @@ module.exports = {
 
     // html-source //
     new HtmlWebpackPlugin({
-      template: __dirname + '/src/static/index.html',
+      template: __dirname + '/static/index.html',
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -142,7 +141,7 @@ module.exports = {
 
     // favicons //
     new FaviconsWebpackPlugin({
-      logo: './src/static/img/icons/favs/favicon.png',
+      logo: './static/img/icons/favs/favicon.png',
       prefix: 'icons-[hash:8]/',
       statsFilename: 'iconstats-[hash:8].json',
       background: '#fff'
