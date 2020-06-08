@@ -37,15 +37,15 @@ Error: ENOSPC: System limit for number of file watchers reached, watch '/home/fo
 // utils - перебросить в routes +++
 // структура папок как react-app +++
 // browser-sync +++
+// API url - delete subUrl +++
+// рефакторинг SIdebar +++
+// redux test убрать +++
 
-// Proble with profiles list
-// API url - delete subUrl
-// fix favicons prod problem
-// redux test убрать
-// рефакторинг SIdebar
 // 404 design
 // eslint 
 // proptypes
+// Proble with profiles list ???
+// fix favicons prod problem 
 // isEmpty no use - use ?: logic or optional chaining
 
 
