@@ -5,7 +5,7 @@ const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 // Entry and output
 const paths = {
   SRC: path.resolve(__dirname, 'src/app.js'),
-  DIST: path.resolve(__dirname, 'dist')
+  DIST: path.resolve(__dirname, 'dist'),
 };
 
 // nodejs module
@@ -30,7 +30,7 @@ module.exports = {
   // OUTPUT (where save compiled data in RAM) //
   output: {
     path: paths.DIST,
-    publicPath: '' // src="publicPath/bundle.js"
+    publicPath: '', // src="publicPath/bundle.js"
   },
 
 
@@ -38,17 +38,17 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'], // for React
     alias: {
-      Api:        path.resolve(__dirname, 'src', 'js/api'),
-      Store:      path.resolve(__dirname, 'src', 'js/store'),
-      Components: path.resolve(__dirname, 'src', 'js/components'),
-      Routes:     path.resolve(__dirname, 'src', 'js/routes'),
-      Layout:     path.resolve(__dirname, 'src', 'js/layout'),
-      Consts:     path.resolve(__dirname, 'src', 'js/consts'),
-      Utils:      path.resolve(__dirname, 'src', 'js/utils'),
-      Images:     path.resolve(__dirname, 'src', 'static/img'),
-      Styles:     path.resolve(__dirname, 'src', 'static/scss'),
-      Fonts:      path.resolve(__dirname, 'src', 'static/fonts'),
-      Images:     path.resolve(__dirname, 'src', 'static/img'),
+      Api:        path.resolve(__dirname, 'src', 'api'),
+      Store:      path.resolve(__dirname, 'src', 'store'),
+      Components: path.resolve(__dirname, 'src', 'components'),
+      Routes:     path.resolve(__dirname, 'src', 'components/routes'),
+      Layout:     path.resolve(__dirname, 'src', 'components/layout'),
+      Consts:     path.resolve(__dirname, 'src', 'consts'),
+
+      // static files
+      Images:     path.resolve(__dirname, 'static', 'img'),
+      Styles:     path.resolve(__dirname, 'static', 'scss'),
+      Fonts:      path.resolve(__dirname, 'static', 'fonts'),
     }
   },
 
@@ -60,8 +60,8 @@ module.exports = {
       // JS //
       {
         test: /\.(js|jsx)$/,
+        use: 'babel-loader',
         exclude: /node_modules/,
-        use: 'babel-loader'
       },
 
       // CSS // with style-loader
@@ -70,7 +70,7 @@ module.exports = {
         use: [
           { loader: "style-loader" },
           { loader: "css-loader", options: { sourceMap: true } },
-          { loader: "sass-loader" }
+          { loader: "sass-loader" },
         ]
       },
 
@@ -81,7 +81,7 @@ module.exports = {
           loader: 'url-loader',
           options: {
             limit: 8000,
-            name: 'img/[name].[ext]'
+            name: 'img/[name].[ext]',
           }
         }]
       },
@@ -92,7 +92,7 @@ module.exports = {
         use: [
           {
             loader: 'file-loader',
-            options: { name: 'fonts/[name].[ext]' }
+            options: { name: 'fonts/[name].[ext]' },
           }
         ]
       },
@@ -103,8 +103,8 @@ module.exports = {
   plugins: [
     // html-source //
     new HtmlWebpackPlugin({
-      favicon: './src/static/img/icons/favs/favicon.png',
-      template: __dirname + '/src/static/index.html'
+      favicon: './static/img/icons/favs/favicon.png',
+      template: __dirname + '/static/index.html',
     }),
 
     // auto-open browser //

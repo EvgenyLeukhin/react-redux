@@ -18,7 +18,7 @@ const Home = () => {
       <h2 className="text-center">Bootstrap card-component</h2>
 
       <Row>
-        <Col>
+        <Col xs="12" sm="4">
           <h4>Bootstrap cols (.col)</h4>
 
           <Card>
@@ -31,7 +31,7 @@ const Home = () => {
           </Card>
         </Col>
 
-        <Col>
+        <Col xs="12" sm="4">
           <h4>Bootstrap cols (.col)</h4>
 
           <Card>
@@ -44,7 +44,7 @@ const Home = () => {
           </Card>
         </Col>
 
-        <Col>
+        <Col xs="12" sm="4">
           <h4>Bootstrap cols (.col)</h4>
 
           <Card>

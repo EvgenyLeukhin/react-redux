@@ -9,7 +9,7 @@ import rootReducer from 'Store/rootReducer';
 import enhancer from 'Store/enhancer';
 
 // APP COMPONENT //
-import App from './js/App';
+import App from './components/App';
 
 // IMPORT STATIC //
 import 'Fonts/fonts.js';    // imprt fonts files when build
