@@ -26,9 +26,9 @@ const Routes = () => {
 
         {/* App protected routes */}
         <ProtectedRoute path='/' exact       component={Home} />
-        <ProtectedRoute path='/profile-add'  component={ProfileAdd} />
-        <ProtectedRoute path='/profile-edit' component={ProfileEdit} />
-        <ProtectedRoute path='/profile-show' component={ProfileShow} />
+        <ProtectedRoute path='/profile/add'  component={ProfileAdd} />
+        <ProtectedRoute path='/profile/edit' component={ProfileEdit} />
+        <ProtectedRoute path='/profile'      component={ProfileShow} />
         <ProtectedRoute path='/profiles'     component={ProfilesList} />
         <ProtectedRoute path='/redux-test'   component={ReduxTest} />
 

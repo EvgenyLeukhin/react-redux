@@ -33,12 +33,14 @@ Error: ENOSPC: System limit for number of file watchers reached, watch '/home/fo
 * Redux integration +++
 
 ---
-// fix favicons prod problem
 
 // utils - перебросить в routes +++
 // структура папок как react-app +++
 // browser-sync +++
 
+// Proble with profiles list
+// API url - delete subUrl
+// fix favicons prod problem
 // redux test убрать
 // рефакторинг SIdebar
 // 404 design
@@ -50,7 +52,7 @@ Error: ENOSPC: System limit for number of file watchers reached, watch '/home/fo
 // dot env NODE.env
 // reducer - хранить в store или внутри компонентов
 // api - поддиректории 
-// path profile/add
+// path profile/add - change routing
 // location.reload
 // Firebase API
 // react-select

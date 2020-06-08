@@ -1,27 +1,22 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import SideNav from 'react-simple-sidenav';
+
+import SidebarLink from './SidebarLink';
+
+import sidebarLinks from 'Consts/sidebarLinks';
 
 import './styles.scss';
 
 const Sidebar = ({ showNav, onHideNav }) => {
-  const styles = {
-    color: 'black',
-    fontWeight: 'bold',
-    cursor: 'default',
-    pointEvents: 'none',
-  };
-
-  const navItems = [
-    <NavLink activeStyle={styles} onClick={onHideNav} to="/" exact>Home</NavLink>,
-    <NavLink activeStyle={styles} onClick={onHideNav} to="/login">Login</NavLink>,
-    <NavLink activeStyle={styles} onClick={onHideNav} to="/profile-add">Add profile</NavLink>,
-    <NavLink activeStyle={styles} onClick={onHideNav} to="/profile-show">Show current profile</NavLink>,
-    <NavLink activeStyle={styles} onClick={onHideNav} to="/profile-edit">Edit or delete current profile</NavLink>,
-    <NavLink activeStyle={styles} onClick={onHideNav} to="/profiles">Profiles list</NavLink>,
-    <NavLink activeStyle={styles} onClick={onHideNav} to="/redux-test">Redux test</NavLink>,
-    <NavLink activeStyle={styles} onClick={onHideNav} to="/123">404 page</NavLink>
-  ];
+  const navItems = sidebarLinks.map(i => (
+    <SidebarLink
+      key={i.id}
+      to={i.to}
+      exact={i.exact}
+      onClick={onHideNav}
+      linkText={i.linkText}
+    />
+  ));
 
   return (
     <SideNav
