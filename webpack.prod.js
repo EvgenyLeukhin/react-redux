@@ -35,16 +35,16 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'], // for React
     alias: {
-      Api:        path.resolve(__dirname, 'src', 'api'),
-      Store:      path.resolve(__dirname, 'src', 'store'),
-      Routes:     path.resolve(__dirname, 'src', 'components/routes'),
-      Layout:     path.resolve(__dirname, 'src', 'components/layout'),
-      Consts:     path.resolve(__dirname, 'src', 'consts'),
+      Api:    path.resolve(__dirname, 'src', 'api'),
+      Store:  path.resolve(__dirname, 'src', 'store'),
+      Routes: path.resolve(__dirname, 'src', 'components/routes'),
+      Layout: path.resolve(__dirname, 'src', 'components/layout'),
+      Consts: path.resolve(__dirname, 'src', 'consts'),
 
       // static files
-      Images:     path.resolve(__dirname, 'static', 'img'),
-      Styles:     path.resolve(__dirname, 'static', 'scss'),
-      Fonts:      path.resolve(__dirname, 'static', 'fonts'),
+      Images: path.resolve(__dirname, 'static', 'img'),
+      Styles: path.resolve(__dirname, 'static', 'scss'),
+      Fonts:  path.resolve(__dirname, 'static', 'fonts'),
     }
   },
 
@@ -56,7 +56,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: 'babel-loader'
+        use: 'babel-loader',
       },
 
       // CSS //
@@ -66,7 +66,7 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           'css-loader',
           'postcss-loader',
-          'sass-loader'
+          'sass-loader',
         ]
       },
 
@@ -78,12 +78,12 @@ module.exports = {
             loader: 'url-loader',
             options: {
               limit: 8000,
-              name: 'img/[name]-[hash:8].[ext]'
+              name: 'img/[name]-[hash:8].[ext]',
             }
           },
           {
             loader: 'image-webpack-loader',
-            options: { bypassOnDebug: true }
+            options: { bypassOnDebug: true },
           }
         ]
       },
@@ -94,7 +94,7 @@ module.exports = {
         use: [
           {
             loader: 'file-loader',
-            options: { name: 'fonts/[name].[ext]' }
+            options: { name: 'fonts/[name].[ext]' },
           }
         ]
       },
@@ -104,10 +104,7 @@ module.exports = {
   optimization: {
     minimize: true,
     minimizer: [
-      new TerserPlugin({
-        sourceMap: true,
-        parallel: true,
-      })
+      new TerserPlugin({ sourceMap: true, parallel: true }),
     ],
   },
 
@@ -135,8 +132,8 @@ module.exports = {
       minify: {
         removeComments: true,
         collapseWhitespace: true,
-        conservativeCollapse: true
-      }
+        conservativeCollapse: true,
+      },
     }),
 
     // favicons //
@@ -144,7 +141,7 @@ module.exports = {
       logo: './static/img/icons/favs/favicon.png',
       prefix: 'icons-[hash:8]/',
       statsFilename: 'iconstats-[hash:8].json',
-      background: '#fff'
+      background: '#fff',
     }),
   ]
 };
