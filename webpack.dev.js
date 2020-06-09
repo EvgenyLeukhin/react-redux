@@ -59,7 +59,7 @@ module.exports = {
       // JS //
       {
         test: /\.(js|jsx)$/,
-        use: 'babel-loader',
+        use: ['babel-loader', 'eslint-loader'],
         exclude: /node_modules/,
       },
 
