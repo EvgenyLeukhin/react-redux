@@ -9,7 +9,7 @@ import getUserData from 'Api/getUserData';
 import editUser    from 'Api/editUser';
 import deleteUser  from 'Api/deleteUser';
 
-import EditForm from './form'
+import EditForm from './form';
 
 import './styles.scss';
 
@@ -22,7 +22,7 @@ class ProfileEdit extends Component {
 
     // fields
     id: '', name: '', surname: '', email: '', job_title: '', admin: true,
-    created: '', modified: '', lastLogin: '', image: '', resData: {},
+    created: '', modified: '', lastLogin: '', resData: {},
 
     // statuses
     emailVerified: false, status: false,
@@ -102,7 +102,7 @@ class ProfileEdit extends Component {
 
       // redirect
       this.props.history.push('/login');
-    }).catch(error => this.catchErrors(error))
+    }).catch(error => this.catchErrors(error));
   }
 
   onChange = e => {
@@ -165,13 +165,12 @@ class ProfileEdit extends Component {
         emailVerified:       res.data.emailVerified,
         emailJobApplication: res.data.emailJobApplication,
         emailMarketing:      res.data.emailMarketing,
-        emailVerified:       res.data.emailVerified,
         emailSettings:       res.data.emailSettings,
         status:              res.data.status,
 
         // all data
-        resData:             res.data,
-      })
+        resData: res.data,
+      });
     }).catch(error => {
       this.catchErrors(error);
     });
@@ -245,7 +244,7 @@ class ProfileEdit extends Component {
           )
         }
       </div>
-    )
+    );
   }
 }
 

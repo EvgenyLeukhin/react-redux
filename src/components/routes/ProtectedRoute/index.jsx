@@ -19,11 +19,11 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
             <Layout>
               <Component {...props} />
             </Layout>
-          )
-        } else return <Redirect to="/login" />
+          );
+        } else return <Redirect to="/login" />;
       }}
     />
-  )
-}
+  );
+};
 
 export default ProtectedRoute;

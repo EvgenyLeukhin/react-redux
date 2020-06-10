@@ -23,21 +23,21 @@ export const fetchProfiles = () => {
         headers: { Authorization: userToken }
       }
     )
-    .then(res    => dispatch(fetchProfilesSuccess(res.data)))
-    .catch(error => {
-      const { statusCode } = error.response.data.error;
-      if (statusCode === 401) {
-        localStorage.removeItem('react-redux-user-data');
-        localStorage.removeItem('react-redux-user-data-fullname');
-        localStorage.removeItem('react-redux-user-data-avatar');
-        dispatch(fetchProfilesError(error.response.data.error));
-        window.location.reload(); // later fix this
-      } else {
-        dispatch(fetchProfilesError(error.response.data.error));
-      }
-    });
-  }
-}
+      .then(res    => dispatch(fetchProfilesSuccess(res.data)))
+      .catch(error => {
+        const { statusCode } = error.response.data.error;
+        if (statusCode === 401) {
+          localStorage.removeItem('react-redux-user-data');
+          localStorage.removeItem('react-redux-user-data-fullname');
+          localStorage.removeItem('react-redux-user-data-avatar');
+          dispatch(fetchProfilesError(error.response.data.error));
+          window.location.reload(); // later fix this
+        } else {
+          dispatch(fetchProfilesError(error.response.data.error));
+        }
+      });
+  };
+};
 
 const fetchProfilesBegin = () => ({
   type: FETCH + PROFILES_LIST + START

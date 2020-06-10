@@ -28,7 +28,7 @@ class Login extends Component {
     e.preventDefault();
     const { email, password } = this.state;
 
-    this.setState({ loading: true })
+    this.setState({ loading: true });
 
     logIn(email, password)
       // LOGIN OK //
@@ -58,8 +58,8 @@ class Login extends Component {
           error: true,
           loading: false,
           errorText: error,
-        })
-      })
+        });
+      });
 
   }
 
@@ -127,7 +127,7 @@ class Login extends Component {
         </Container>
 
       </div>
-    )
+    );
   }
 }
 

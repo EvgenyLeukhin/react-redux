@@ -17,7 +17,7 @@ const getUsers = () => {
       },
       headers: { Authorization: userToken }
     }
-  )
-}
+  );
+};
 
 export default getUsers;

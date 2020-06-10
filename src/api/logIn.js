@@ -7,6 +7,6 @@ const logIn = (email, password) => {
     `${API_URL}/users/login?include=user`,
     { email, password },
   );
-}
+};
 
 export default logIn;

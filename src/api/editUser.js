@@ -43,6 +43,6 @@ const editUser = state => {
       headers: { Authorization: userToken }
     }
   );
-}
+};
 
 export default editUser;

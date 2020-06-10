@@ -45,7 +45,7 @@ class Layout extends Component {
           redirect: true,
           loading: false
         });
-      })
+      });
   }
 
   toggleSidebar = () => {
@@ -77,7 +77,7 @@ class Layout extends Component {
         </Container>
         <Footer />
       </div>
-    )
+    );
   }
 }
 

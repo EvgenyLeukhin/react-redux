@@ -5,7 +5,7 @@ import { Alert } from 'reactstrap';
 // API //
 import addUser from 'Api/addUser';
 
-import AddForm from './form'
+import AddForm from './form';
 
 import './styles.scss';
 
@@ -105,7 +105,7 @@ class ProfileAdd extends Component {
           onChange={this.onChange} addUserSubmit={this.addUserSubmit} cancelClick={this.cancelClick}
         />
       </div>
-    )
+    );
   }
 }
 

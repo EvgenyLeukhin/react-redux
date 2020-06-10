@@ -7,6 +7,7 @@ const columns = [
     Header: 'ID',
     accessor: 'id',
     width: 60,
+    // eslint-disable-next-line react/display-name
     Cell: ({ original }) => {
       return (
         <div style={{ textAlign: 'right' }}>
@@ -19,7 +20,6 @@ const columns = [
     Header: 'Name',
     accessor: 'name',
     id: 'name',
-    accessor: d => d.name,
     filterMethod: (filter, rows) => matchSorter(rows, filter.value, { keys: ['name'] }),
     filterAll: true
   },
@@ -27,7 +27,6 @@ const columns = [
     Header: 'Surname',
     accessor: 'surname',
     id: 'surname',
-    accessor: d => d.surname,
     filterMethod: (filter, rows) => matchSorter(rows, filter.value, { keys: ['surname'] }),
     filterAll: true
   },
@@ -35,7 +34,6 @@ const columns = [
     Header: 'Email',
     accessor: 'email',
     id: 'email',
-    accessor: d => d.email,
     filterMethod: (filter, rows) => matchSorter(rows, filter.value, { keys: ['email'] }),
     filterAll: true
   },
@@ -43,7 +41,6 @@ const columns = [
     Header: 'Job title',
     accessor: 'job_title',
     id: 'job_title',
-    accessor: d => d.job_title,
     filterMethod: (filter, rows) => matchSorter(rows, filter.value, { keys: ['job_title'] }),
     filterAll: true
   },

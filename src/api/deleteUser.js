@@ -12,7 +12,7 @@ const deleteUser = id => {
     {
       headers: { Authorization: userToken }
     }
-  )
+  );
 };
 
 export default deleteUser;

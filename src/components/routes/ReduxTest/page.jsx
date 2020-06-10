@@ -15,7 +15,7 @@ class ReduxTest extends Component {
         <Button color="danger" onClick={this.props.minus}>-</Button>
         <Button color="primary" onClick={this.props.plus}>+</Button>
       </div>
-    )
+    );
   }
 }
 

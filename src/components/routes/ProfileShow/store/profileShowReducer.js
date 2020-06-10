@@ -14,31 +14,31 @@ const initialState = {
 const profileShowReducer = (state = initialState, action) => {
   switch (action.type) {
 
-    // actions //
-    case FETCH + PROFILE_SHOW + START:
-      return {
-        ...state,
-        loading: true,
-        error: false,
-      };
+  // actions //
+  case FETCH + PROFILE_SHOW + START:
+    return {
+      ...state,
+      loading: true,
+      error: false,
+    };
 
-    case FETCH + PROFILE_SHOW + SUCCESS:
-      return {
-        ...state,
-        loading: false,
-        error: false,
-        userData: action.payload.userData,
-      };
+  case FETCH + PROFILE_SHOW + SUCCESS:
+    return {
+      ...state,
+      loading: false,
+      error: false,
+      userData: action.payload.userData,
+    };
 
-    case FETCH + PROFILE_SHOW + ERROR:
-      return {
-        ...state,
-        loading: false,
-        error: action.payload.error,
-      };
+  case FETCH + PROFILE_SHOW + ERROR:
+    return {
+      ...state,
+      loading: false,
+      error: action.payload.error,
+    };
 
     // RETURN INITIAL STATE BY DEFAULT //
-    default: return state;
+  default: return state;
   }
 };
 

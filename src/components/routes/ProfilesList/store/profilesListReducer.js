@@ -14,31 +14,31 @@ const initialState = {
 const profilesListReducer = (state = initialState, action) => {
   switch (action.type) {
 
-    // actions //
-    case FETCH + PROFILES_LIST + START:
-      return {
-        ...state,
-        loading: true,
-        error: false,
-      };
+  // actions //
+  case FETCH + PROFILES_LIST + START:
+    return {
+      ...state,
+      loading: true,
+      error: false,
+    };
 
-    case FETCH + PROFILES_LIST + SUCCESS:
-      return {
-        ...state,
-        loading: false,
-        error: false,
-        profiles: action.payload.profiles,
-      };
+  case FETCH + PROFILES_LIST + SUCCESS:
+    return {
+      ...state,
+      loading: false,
+      error: false,
+      profiles: action.payload.profiles,
+    };
 
-    case FETCH + PROFILES_LIST + ERROR:
-      return {
-        ...state,
-        loading: false,
-        error: action.payload.error,
-      };
+  case FETCH + PROFILES_LIST + ERROR:
+    return {
+      ...state,
+      loading: false,
+      error: action.payload.error,
+    };
 
-    // RETURN INITIAL STATE BY DEFAULT //
-    default: return state;
+  // RETURN INITIAL STATE BY DEFAULT //
+  default: return state;
   }
 };
 

@@ -16,6 +16,6 @@ const addUser = (name, surname, password, email) => {
       headers: { Authorization: userToken }
     }
   );
-}
+};
 
 export default addUser;

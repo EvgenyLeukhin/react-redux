@@ -36,7 +36,7 @@ const Routes = () => {
         <ProtectedRoute path="*" component={Page404} />
       </Switch>
     </Suspense>
-  )
-}
+  );
+};
 
 export default Routes;

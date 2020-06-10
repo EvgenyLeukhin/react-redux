@@ -22,7 +22,7 @@ const Header = ({ logout, loading, toggleSidebar, sidebarIsOpen }) => {
         toggle={toggleSidebar}
       />
       <NavLink className="brand-link" to="/" exact>React-app</NavLink>
-      <NavLink className="user-link" to="/profile-show" title={userName || 'User'}>
+      <NavLink className="user-link" to="/profile" title={userName || 'User'}>
         <div style={{ backgroundImage: userImg ? `url(${userImg})` : 'none' }} className="user-avatar" />
         <span>{userName || 'User'}</span>
       </NavLink>
@@ -36,7 +36,7 @@ const Header = ({ logout, loading, toggleSidebar, sidebarIsOpen }) => {
         { loading ? <Spinner size="sm" /> : 'Log out' }
       </Button>
     </Headroom>
-  )
-}
+  );
+};
 
 export default Header;

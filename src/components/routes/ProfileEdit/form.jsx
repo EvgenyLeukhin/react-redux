@@ -258,7 +258,7 @@ const EditForm = ({
         </div>
       </Container>
     </Form>
-  )
-}
+  );
+};
 
 export default EditForm;

@@ -11,7 +11,7 @@ const Footer = () => {
         <small>&copy; Copyright 2020, Example Corporation</small>
       </Container>
     </footer>
-  )
-}
+  );
+};
 
 export default Footer;

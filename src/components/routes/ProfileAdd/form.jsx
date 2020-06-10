@@ -89,7 +89,7 @@ const AddForm = ({
         </div>
       </Container>
     </Form>
-  )
-}
+  );
+};
 
 export default AddForm;

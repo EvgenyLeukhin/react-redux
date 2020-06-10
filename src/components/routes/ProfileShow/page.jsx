@@ -120,7 +120,7 @@ class ProfileShow extends Component {
           )
         }
       </div>
-    )
+    );
   }
 }
 

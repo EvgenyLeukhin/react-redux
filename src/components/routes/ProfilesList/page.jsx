@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReactTable from "react-table";
+import ReactTable from 'react-table';
 import { Helmet } from 'react-helmet';
 import { Alert } from 'reactstrap';
 import { Redirect } from 'react-router-dom';
@@ -9,7 +9,7 @@ import isEmpty from 'lodash/isEmpty';
 import columns from './columns';
 
 class ProfilesList extends Component {
-  componentDidMount() { this.props.fetchProfiles() }
+  componentDidMount() { this.props.fetchProfiles(); }
 
   render() {
     const { profiles, loading, error } = this.props;
@@ -36,7 +36,7 @@ class ProfilesList extends Component {
           resizable={true}
         />
       </div>
-    )
+    );
   }
 }
 

@@ -12,7 +12,7 @@ const getUserData = id => {
     {
       headers: { Authorization: userToken }
     }
-  )
-}
+  );
+};
 
 export default getUserData;
