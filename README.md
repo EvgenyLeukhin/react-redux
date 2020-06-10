@@ -42,10 +42,10 @@ Error: ENOSPC: System limit for number of file watchers reached, watch '/home/fo
 // redux test убрать +++
 // Proble with profiles list +++
 // eslint +++
+// react-modal - console errors +++
 // proptypes +++
 
 // columns.js - proptypes warn ---
-// react-modal - console errors ---
 // 404 design ---
 // fix favicons prod problem ---
 // isEmpty no use - use ?: logic or optional chaining ---

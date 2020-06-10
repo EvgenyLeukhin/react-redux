@@ -205,6 +205,7 @@ class ProfileEdit extends Component {
         </Alert>
 
         <Modal
+          ariaHideApp={false}
           className="delete-modal"
           overlayClassName="delete-modal__overlay"
           isOpen={deleteModal}
