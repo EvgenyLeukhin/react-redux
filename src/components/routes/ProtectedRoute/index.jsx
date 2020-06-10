@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import isEmpty from 'lodash/isEmpty';
+import PT from 'prop-types';
 
 import Layout from 'Layout';
 
@@ -24,6 +25,10 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
       }}
     />
   );
+};
+
+ProtectedRoute.propTypes = {
+  component: PT.object,
 };
 
 export default ProtectedRoute;

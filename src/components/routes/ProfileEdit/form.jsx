@@ -1,11 +1,15 @@
 import React from 'react';
 import { Container, Row, Col, Button, Form, FormGroup, Label, Input, Spinner } from 'reactstrap';
+import PT from 'prop-types';
 
 import isEmpty from 'lodash/isEmpty';
 
 const EditForm = ({
   // fields
-  name, email, surname, job_title, status, emailVerified, emailJobApplication, emailMarketing, emailSettings, id, modified, created, lastLogin,
+  name, email, surname, job_title, status, emailVerified, emailJobApplication, emailMarketing, emailSettings,
+
+  // not editable
+  id, modified, created, lastLogin,
 
   // actions
   editUserSubmit, deleteModalOpen, onChange, deleteImage, editLoading,
@@ -259,6 +263,29 @@ const EditForm = ({
       </Container>
     </Form>
   );
+};
+
+EditForm.propTypes = {
+  name: PT.string,
+  email: PT.string,
+  surname: PT.string,
+  job_title: PT.string,
+  status: PT.bool,
+  emailVerified: PT.bool,
+  emailJobApplication: PT.bool,
+  emailMarketing: PT.bool,
+  emailSettings: PT.bool,
+  id: PT.oneOfType([ PT.string, PT.number ]),
+  modified: PT.string,
+  created: PT.string,
+  lastLogin: PT.string,
+  editUserSubmit: PT.func,
+  deleteModalOpen: PT.func,
+  onChange: PT.func,
+  deleteImage: PT.func,
+  editLoading: PT.bool,
+  image: PT.object,
+  onChangeImage: PT.func,
 };
 
 export default EditForm;

@@ -3,6 +3,7 @@ import ReactTable from 'react-table';
 import { Helmet } from 'react-helmet';
 import { Alert } from 'reactstrap';
 import { Redirect } from 'react-router-dom';
+import PT from 'prop-types';
 
 import isEmpty from 'lodash/isEmpty';
 
@@ -39,5 +40,12 @@ class ProfilesList extends Component {
     );
   }
 }
+
+ProfilesList.propTypes = {
+  fetchProfiles: PT.func,
+  error: PT.bool,
+  profiles: PT.array,
+  loading: PT.bool,
+};
 
 export default ProfilesList;

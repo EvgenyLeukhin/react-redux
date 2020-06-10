@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import { Alert } from 'reactstrap';
+import PT from 'prop-types';
 
 // API //
 import addUser from 'Api/addUser';
@@ -16,7 +17,7 @@ class ProfileAdd extends Component {
     addLoading: false, error: false, errorText: '',
 
     // fields
-    name: '', surname: '', email: '', job_title: '', password: '',
+    name: '', surname: '', email: '', password: '',
   }
 
 
@@ -31,6 +32,7 @@ class ProfileAdd extends Component {
       this.props.history.push('/login');
 
     } else {
+      // eslint-disable-next-line no-console
       console.log(error);
       this.setState({
         addLoading: false,
@@ -108,5 +110,9 @@ class ProfileAdd extends Component {
     );
   }
 }
+
+ProfileAdd.propTypes = {
+  history: PT.object,
+};
 
 export default ProfileAdd;

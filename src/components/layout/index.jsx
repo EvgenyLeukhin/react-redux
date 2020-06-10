@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Container } from 'reactstrap';
-
 import { Redirect } from 'react-router-dom';
+import PT from 'prop-types';
 
 import Sidebar from 'Layout/Sidebar';
 import Header from 'Layout/Header';
@@ -14,9 +14,7 @@ import './styles.scss';
 class Layout extends Component {
   state = {
     loading: false,
-    error: false,
     redirect: false,
-    logOutSuccsess: false,
     sidebarIsOpen: false,
   }
 
@@ -40,6 +38,7 @@ class Layout extends Component {
         localStorage.removeItem('react-redux-user-data-fullname');
         localStorage.removeItem('react-redux-user-data-avatar');
 
+        // eslint-disable-next-line no-console
         console.log(error);
         this.setState({
           redirect: true,
@@ -80,5 +79,9 @@ class Layout extends Component {
     );
   }
 }
+
+Layout.propTypes = {
+  children: PT.object,
+};
 
 export default Layout;

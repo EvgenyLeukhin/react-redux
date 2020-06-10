@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import { Alert, Table, Button } from 'reactstrap';
 import { Redirect } from 'react-router-dom';
+import PT from 'prop-types';
 
 import isEmpty from 'lodash/isEmpty';
 
 
 class ProfileShow extends Component {
-  componentDidMount() {
-    this.props.fetchUserData();
-  }
+  componentDidMount() { this.props.fetchUserData(); }
 
   goToEdit = () => {
     const { history } = this.props;
@@ -123,5 +122,13 @@ class ProfileShow extends Component {
     );
   }
 }
+
+ProfileShow.propTypes = {
+  fetchUserData: PT.func,
+  userData: PT.objectOf(PT.any),
+  loading: PT.bool,
+  error: PT.bool,
+  history: PT.object,
+};
 
 export default ProfileShow;

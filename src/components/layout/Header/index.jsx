@@ -3,6 +3,7 @@ import Headroom from 'react-headroom';
 import { NavLink } from 'react-router-dom';
 import { Button, Spinner } from 'reactstrap';
 import Hamburger from 'hamburger-react';
+import PT from 'prop-types';
 
 import cln from 'classnames';
 
@@ -37,6 +38,13 @@ const Header = ({ logout, loading, toggleSidebar, sidebarIsOpen }) => {
       </Button>
     </Headroom>
   );
+};
+
+Header.propTypes = {
+  logout: PT.func,
+  loading: PT.bool,
+  toggleSidebar: PT.func,
+  sidebarIsOpen: PT.bool,
 };
 
 export default Header;

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import { Container, Form, FormGroup, Label, Input, Button, Alert, Spinner } from 'reactstrap';
+import PT from 'prop-types';
+
 import cln from 'classnames';
 
 import logIn from 'Api/logIn';
@@ -14,7 +16,6 @@ class Login extends Component {
     loading: false,
     success: false,
     error: false,
-    errorText: '',
   }
 
   onChange = e => {
@@ -52,12 +53,12 @@ class Login extends Component {
 
       // LOGIN NOT OK //
       .catch(error => {
+        // eslint-disable-next-line no-console
         console.log(error);
 
         this.setState({
           error: true,
           loading: false,
-          errorText: error,
         });
       });
 
@@ -130,5 +131,9 @@ class Login extends Component {
     );
   }
 }
+
+Login.propTypes = {
+  history: PT.object,
+};
 
 export default Login;

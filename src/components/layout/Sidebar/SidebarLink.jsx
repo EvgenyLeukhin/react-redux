@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import PT from 'prop-types';
 
 const styles = {
   color: 'black',
@@ -18,5 +19,12 @@ const SidebarLink = ({ to, exact, onClick, linkText }) => (
     {linkText}
   </NavLink>
 );
+
+SidebarLink.propTypes = {
+  to: PT.string,
+  exact: PT.bool,
+  onClick: PT.func,
+  linkText: PT.string,
+};
 
 export default SidebarLink;

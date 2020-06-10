@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Button, Form, FormGroup, Label, Input, Spinner } from 'reactstrap';
+import PT from 'prop-types';
 
-import isEmpty from 'lodash/isEmpty';
 
 const AddForm = ({
   // fields
@@ -91,5 +91,17 @@ const AddForm = ({
     </Form>
   );
 };
+
+AddForm.propTypes = {
+  name: PT.string,
+  surname: PT.string,
+  email: PT.string,
+  password: PT.string,
+  addUserSubmit: PT.func,
+  onChange: PT.func,
+  addLoading: PT.bool,
+  cancelClick: PT.func,
+};
+
 
 export default AddForm;

@@ -1,5 +1,6 @@
 import React from 'react';
 import SideNav from 'react-simple-sidenav';
+import PT from 'prop-types';
 
 import SidebarLink from './SidebarLink';
 
@@ -33,6 +34,12 @@ const Sidebar = ({ showNav, onHideNav }) => {
       itemHoverStyle={{ backgroundColor: 'transparent' }}
     />
   );
+};
+
+Sidebar.propTypes = {
+  to: PT.string,
+  showNav: PT.bool,
+  onHideNav: PT.func,
 };
 
 export default Sidebar;

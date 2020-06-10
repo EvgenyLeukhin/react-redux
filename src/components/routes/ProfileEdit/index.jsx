@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import { Alert } from 'reactstrap';
 import Modal from 'react-modal';
 import { Button, Spinner, ButtonGroup } from 'reactstrap';
+import PT from 'prop-types';
 
 // API //
 import getUserData from 'Api/getUserData';
@@ -21,7 +22,7 @@ class ProfileEdit extends Component {
     deleteModal: false,
 
     // fields
-    id: '', name: '', surname: '', email: '', job_title: '', admin: true,
+    id: '', name: '', surname: '', email: '', job_title: '',
     created: '', modified: '', lastLogin: '', resData: {},
 
     // statuses
@@ -46,6 +47,7 @@ class ProfileEdit extends Component {
       this.props.history.push('/login');
 
     } else {
+      // eslint-disable-next-line no-console
       console.log(error);
       this.setState({
         getLoading: false,
@@ -64,11 +66,12 @@ class ProfileEdit extends Component {
   editUserSubmit = e => {
     e.preventDefault();
     const { state } = this;
+    const { resData } = this.state;
     const { history } = this.props;
 
     this.setState({ editLoading: true });
 
-    editUser(state).then(() => {
+    editUser(state, resData).then(() => {
       const { name, surname, image } = this.state;
 
       const fullName = `${name} ${surname}`;
@@ -247,5 +250,9 @@ class ProfileEdit extends Component {
     );
   }
 }
+
+ProfileEdit.propTypes = {
+  history: PT.object,
+};
 
 export default ProfileEdit;

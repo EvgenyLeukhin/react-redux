@@ -70,7 +70,7 @@ const Home = () => {
 
         <div className="load-images__item">
           <h4>Load image by css-background with <u>url-loader (base-64)</u></h4>
-          <div className="load-image"></div>
+          <div className="load-image" />
         </div>
 
         <div className="load-images__item">
@@ -80,7 +80,7 @@ const Home = () => {
 
         <div className="load-images__item">
           <h4>Load heavy image by css-background with <u>file-loader</u></h4>
-          <div className="load-image2"></div>
+          <div className="load-image2" />
         </div>
       </div>
 
