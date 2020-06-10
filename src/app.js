@@ -12,8 +12,11 @@ import enhancer from 'Store/enhancer';
 import App from './components/App';
 
 // IMPORT STATIC //
-import 'Fonts/fonts.js';    // import fonts files when build
-import 'Styles/app.scss';   // global css
+// import fonts files when build
+import 'Fonts/fonts.js';
+
+// global css
+import 'Styles/app.scss';
 
 ReactDOM.render(
   <Provider store={createStore(rootReducer, enhancer)}>

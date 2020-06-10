@@ -67,9 +67,9 @@ module.exports = {
       {
         test: /\.(sa|sc|c)ss$/,
         use: [
-          { loader: "style-loader" },
-          { loader: "css-loader", options: { sourceMap: true } },
-          { loader: "sass-loader" },
+          { loader: 'style-loader' },
+          { loader: 'css-loader', options: { sourceMap: true } },
+          { loader: 'sass-loader' },
         ]
       },
 
@@ -107,6 +107,6 @@ module.exports = {
     }),
 
     // auto-open browser //
-     new OpenBrowserPlugin({ url: 'http://localhost:8000' }),
+    new OpenBrowserPlugin({ url: 'http://localhost:8000' }),
   ]
 };
