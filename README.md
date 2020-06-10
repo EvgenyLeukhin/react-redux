@@ -40,11 +40,11 @@ Error: ENOSPC: System limit for number of file watchers reached, watch '/home/fo
 // API url - delete subUrl +++
 // рефакторинг SIdebar +++
 // redux test убрать +++
+// Proble with profiles list +++
+// eslint +++
 
 // 404 design
-// eslint 
 // proptypes
-// Proble with profiles list ???
 // fix favicons prod problem 
 // isEmpty no use - use ?: logic or optional chaining
 
