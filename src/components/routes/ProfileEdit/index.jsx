@@ -81,7 +81,7 @@ class ProfileEdit extends Component {
         this.setState({ editLoading: false });
         localStorage.setItem('react-redux-user-data-fullname', fullName);
         localStorage.setItem('react-redux-user-data-avatar', avatar);
-        history.push('/profile-show');
+        history.push('/profile');
       }, 500);
     }).catch(error => {
       this.catchErrors(error);

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import { Table, Button } from 'reactstrap';
+import PT from 'prop-types';
 
 import getUserData from 'Api/getUserData';
 
-import "./styles.scss";
+import './styles.scss';
 
 
 class ProfileShow extends Component {
@@ -24,8 +25,8 @@ class ProfileShow extends Component {
       this.setState({
         loading: false,
         userData: res.data
-      })
-    })
+      });
+    });
   }
 
   goToEdit = () => {
@@ -129,7 +130,12 @@ class ProfileShow extends Component {
           )
         }
       </div>
-    )
+    );
   }
 }
+
+ProfileShow.propTypes = {
+  history: PT.object,
+};
+
 export default ProfileShow;

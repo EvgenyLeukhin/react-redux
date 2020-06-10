@@ -38,6 +38,8 @@
     "react/prop-types": 1,
     "react/self-closing-comp": 1,
     "react/jsx-child-element-spacing": 1,
+    "react/prefer-stateless-function": 1,
+    "react/display-name": 0,  // for coluns.js Cell
     "linebreak-style": [
       "error",
       "unix"

@@ -1,5 +1,5 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
-
 import matchSorter from 'match-sorter';
 
 const columns = [
@@ -7,7 +7,6 @@ const columns = [
     Header: 'ID',
     accessor: 'id',
     width: 60,
-    // eslint-disable-next-line react/display-name
     Cell: ({ original }) => {
       return (
         <div style={{ textAlign: 'right' }}>

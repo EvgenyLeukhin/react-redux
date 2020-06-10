@@ -7,6 +7,7 @@ const TerserPlugin            = require('terser-webpack-plugin');
 const MiniCssExtractPlugin    = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const FaviconsWebpackPlugin   = require('favicons-webpack-plugin');
+const BundleAnalyzerPlugin    = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 // Entry and output
 const paths = {
@@ -142,6 +143,12 @@ module.exports = {
       prefix: 'icons-[hash:8]/',
       statsFilename: 'iconstats-[hash:8].json',
       background: '#fff',
+    }),
+
+    // bundle analizer
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+      openAnalyzer: false,
     }),
   ]
 };

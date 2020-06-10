@@ -17,6 +17,6 @@ const uploadImage = (formData, id) => {
       headers: { Authorization: userToken }
     }
   );
-}
+};
 
 export default uploadImage;

@@ -5,7 +5,9 @@ node_modules/
 dist/
 build/
 
+
 # Optional
+.eslintcache
 # _design/
 # package-lock.json
 # yarn.json

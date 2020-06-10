@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import ReactTable from "react-table";
+import ReactTable from 'react-table';
 import { Helmet } from 'react-helmet';
 import { Alert } from 'reactstrap';
+import PT from 'prop-types';
 
 import getUsers from 'Api/getUsers';
 
@@ -27,6 +28,7 @@ class ProfilesList extends Component {
       this.props.history.push('/login');
 
     } else {
+      // eslint-disable-next-line no-console
       console.log(error);
       this.setState({
         loading: false,
@@ -80,8 +82,12 @@ class ProfilesList extends Component {
           resizable={true}
         />
       </div>
-    )
+    );
   }
 }
+
+ProfilesList.propTypes = {
+  history: PT.object,
+};
 
 export default ProfilesList;
