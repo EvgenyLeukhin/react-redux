@@ -1,36 +1,21 @@
 {
   "parser": "babel-eslint",
   "settings": {
-    "react": {
-      "version": "detect"
-    }
+    "react": { "version": "detect" }
   },
-  "env": {
-    "browser": true,
-    "node": true,
-    "commonjs": true,
-    "es6": true
-  },
+  "env": { "browser": true, "node": true, "commonjs": true, "es6": true },
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended"
   ],
   "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true,
-      "modules": true
-    },
+    "ecmaFeatures": { "jsx": true, "modules": true },
     "ecmaVersion": 6,
     "sourceType": "module"
   },
-  "plugins": [
-    "react"
-  ],
+  "plugins": [ "react" ],
   "rules": {
-    "indent": [
-      "error",
-      2
-    ],
+    "indent": [ "error", 2 ],
     "no-console": 1,
     "no-unused-vars": 1,
     "prefer-const": 1,
@@ -39,18 +24,9 @@
     "react/self-closing-comp": 1,
     "react/jsx-child-element-spacing": 1,
     "react/prefer-stateless-function": 1,
-    "react/display-name": 0,  // for coluns.js Cell
-    "linebreak-style": [
-      "error",
-      "unix"
-    ],
-    "quotes": [
-      "error",
-      "single"
-    ],
-    "semi": [
-      "error",
-      "always"
-    ]
+    "react/display-name": 0,                // for columns.js Cell: ({ original })
+    "linebreak-style": [ "error", "unix" ],
+    "quotes": [ "error", "single" ],
+    "semi": [ "error", "always" ]
   }
 }
