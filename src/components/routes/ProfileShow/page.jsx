@@ -13,7 +13,7 @@ class ProfileShow extends Component {
 
   goToEdit = () => {
     const { history } = this.props;
-    history.push('/profile-edit');
+    history.push('/profile/edit');
   }
 
   render() {

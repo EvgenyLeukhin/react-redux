@@ -21,11 +21,11 @@ module.exports = {
 
   // ENTRY point //
   entry: paths.SRC,
-  output: { filename: 'bundle.js' },
 
 
   // OUTPUT (where save compiled data in HDD) //
   output: {
+    filename: 'bundle-[hash:8].js',
     path: paths.DIST,
     publicPath: '' // src="publicPath/bundle.js"
   },

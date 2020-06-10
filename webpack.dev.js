@@ -23,12 +23,12 @@ module.exports = {
     overlay: { warnings: false, errors: true }
   },
   watchOptions: { ignored: /node_modules/ },
-  output: { filename: 'bundle.js' },
   devtool: 'cheap-module-source-map',
 
 
   // OUTPUT (where save compiled data in RAM) //
   output: {
+    filename: 'bundle.js',
     path: paths.DIST,
     publicPath: '', // src="publicPath/bundle.js"
   },
