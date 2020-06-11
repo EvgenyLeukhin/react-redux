@@ -5,6 +5,7 @@ import PT from 'prop-types';
 
 // API //
 import addUser from 'Api/addUser';
+import clearStorage from 'Utils/clearStorage';
 
 import AddForm from './form';
 
@@ -25,9 +26,7 @@ class ProfileAdd extends Component {
   catchErrors = error => {
     // redirect to login if 401 (request, response)
     if (error.response.status === 401) {
-      localStorage.removeItem('react-redux-user-data');
-      localStorage.removeItem('react-redux-user-data-fullname');
-      localStorage.removeItem('react-redux-user-data-avatar');
+      clearStorage();
 
       this.props.history.push('/login');
 

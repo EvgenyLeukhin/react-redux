@@ -5,6 +5,7 @@ import { Alert } from 'reactstrap';
 import PT from 'prop-types';
 
 import getUsers from 'Api/getUsers';
+import clearStorage from 'Utils/clearStorage';
 
 import columns from './columns';
 
@@ -21,9 +22,7 @@ class ProfilesList extends Component {
   catchErrors = error => {
     // redirect to login if 401 (request, response)
     if (error.response.status === 401) {
-      localStorage.removeItem('react-redux-user-data');
-      localStorage.removeItem('react-redux-user-data-fullname');
-      localStorage.removeItem('react-redux-user-data-avatar');
+      clearStorage();
 
       this.props.history.push('/login');
 

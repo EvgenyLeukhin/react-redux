@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import ProfileShow from './page';
 
 // IMPORT ACTIONS
-import { fetchUserData } from './store/profileShowActions';
+import fetchUserData from './store/profileShowActions';
 
 import './styles.scss';
 

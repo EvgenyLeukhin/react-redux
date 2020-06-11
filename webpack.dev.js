@@ -43,6 +43,7 @@ module.exports = {
       Routes: path.resolve(__dirname, 'src', 'components/routes'),
       Layout: path.resolve(__dirname, 'src', 'components/layout'),
       Consts: path.resolve(__dirname, 'src', 'consts'),
+      Utils:  path.resolve(__dirname, 'src', 'utils'),
 
       // static files
       Images: path.resolve(__dirname, 'static', 'img'),

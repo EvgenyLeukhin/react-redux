@@ -3,6 +3,8 @@ import isEmpty from 'lodash/isEmpty';
 
 import API_URL from 'Consts/apiUrl';
 
+import clearStorage from 'Utils/clearStorage';
+
 const logOut = () => {
   const userData = JSON.parse(localStorage.getItem('react-redux-user-data'));
   const userToken = !isEmpty(userData) && userData.data.id;
@@ -13,9 +15,7 @@ const logOut = () => {
     }
   ).then(() => {
     // remove user-data
-    localStorage.removeItem('react-redux-user-data');
-    localStorage.removeItem('react-redux-user-data-fullname');
-    localStorage.removeItem('react-redux-user-data-avatar');
+    clearStorage();
   });
 };
 

@@ -6,6 +6,8 @@ import {
 
 import API_URL from 'Consts/apiUrl';
 
+import clearStorage from 'Utils/clearStorage';
+
 // request
 export const fetchProfiles = () => {
   const userData = JSON.parse(localStorage.getItem('react-redux-user-data'));
@@ -27,11 +29,8 @@ export const fetchProfiles = () => {
       .catch(error => {
         const { statusCode } = error.response.data.error;
         if (statusCode === 401) {
-          localStorage.removeItem('react-redux-user-data');
-          localStorage.removeItem('react-redux-user-data-fullname');
-          localStorage.removeItem('react-redux-user-data-avatar');
+          clearStorage();
           dispatch(fetchProfilesError(error.response.data.error));
-          window.location.reload(); // later fix this
         } else {
           dispatch(fetchProfilesError(error.response.data.error));
         }

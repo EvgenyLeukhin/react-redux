@@ -72,7 +72,7 @@ const EditForm = ({
                 id="user-edit__name"
                 type="text"
                 name="name"
-                value={name}
+                value={name || ''}
                 onChange={onChange}
               />
             </FormGroup>
@@ -83,7 +83,7 @@ const EditForm = ({
                 id="user-edit__email"
                 type="text"
                 name="email"
-                value={email}
+                value={email || ''}
                 onChange={onChange}
               />
             </FormGroup>
@@ -97,7 +97,7 @@ const EditForm = ({
                 id="user-edit__surname"
                 type="text"
                 name="surname"
-                value={surname}
+                value={surname || ''}
                 onChange={onChange}
               />
             </FormGroup>
@@ -108,7 +108,7 @@ const EditForm = ({
                 id="user-edit__job_title"
                 type="text"
                 name="job_title"
-                value={job_title}
+                value={job_title || ''}
                 onChange={onChange}
               />
             </FormGroup>

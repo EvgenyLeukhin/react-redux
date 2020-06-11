@@ -9,6 +9,8 @@ import Footer from 'Layout/Footer';
 
 import logOut from 'Api/logOut';
 
+import clearStorage from 'Utils/clearStorage';
+
 import './styles.scss';
 
 class Layout extends Component {
@@ -34,9 +36,7 @@ class Layout extends Component {
       // if error
       .catch(error => {
         // clear localStorage
-        localStorage.removeItem('react-redux-user-data');
-        localStorage.removeItem('react-redux-user-data-fullname');
-        localStorage.removeItem('react-redux-user-data-avatar');
+        clearStorage();
 
         // eslint-disable-next-line no-console
         console.log(error);

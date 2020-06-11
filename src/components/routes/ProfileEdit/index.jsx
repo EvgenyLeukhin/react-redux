@@ -10,6 +10,8 @@ import getUserData from 'Api/getUserData';
 import editUser    from 'Api/editUser';
 import deleteUser  from 'Api/deleteUser';
 
+import clearStorage from 'Utils/clearStorage';
+
 import EditForm from './form';
 
 import './styles.scss';
@@ -40,9 +42,7 @@ class ProfileEdit extends Component {
   catchErrors = error => {
     // redirect to login if 401 (request, response)
     if (error.response.status === 401) {
-      localStorage.removeItem('react-redux-user-data');
-      localStorage.removeItem('react-redux-user-data-fullname');
-      localStorage.removeItem('react-redux-user-data-avatar');
+      clearStorage();
 
       this.props.history.push('/login');
 
@@ -99,9 +99,7 @@ class ProfileEdit extends Component {
       this.setState({ deleteLoading: false });
 
       // clear localStorage
-      localStorage.removeItem('react-redux-user-data');
-      localStorage.removeItem('react-redux-user-data-fullname');
-      localStorage.removeItem('react-redux-user-data-avatar');
+      clearStorage();
 
       // redirect
       this.props.history.push('/login');
