@@ -9,7 +9,7 @@ import API_URL from 'Consts/apiUrl';
 import clearStorage from 'Utils/clearStorage';
 
 // request
-export const fetchProfiles = () => {
+const fetchProfiles = () => {
   const userData = JSON.parse(localStorage.getItem('react-redux-user-data'));
   const userToken = !isEmpty(userData) && userData.data.id;
 
@@ -51,3 +51,5 @@ const fetchProfilesError = (error) => ({
   type: FETCH + PROFILES_LIST + ERROR,
   payload: { error },
 });
+
+export default fetchProfiles;

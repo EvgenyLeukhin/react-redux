@@ -19,43 +19,49 @@ Error: ENOSPC: System limit for number of file watchers reached, watch '/home/fo
 
 * Custom webpack config +++
 * Routing in react app +++
+* 404 page +++
 * Login and Logout +++
+* Redirect to login if 401 error +++
+* Error alerts +++
 * Folder managment +++
 * Bootstrap 4, reactstrap +++
-* Work with some API (without Redux) +++
+* Work with some API (without and without Redux) +++
 * Layout components +++
-* react-sidebar +++
-
-
-* Work with data (CRUD) +++
-* Show some data-list +++
-* react-table +++
+* eslint +++
+* proptypes +++
+* browser-sync +++
 * Redux integration +++
+* GH-pages deploy +++
+
+
+* Show data +++
+* Add data +++
+* Edit data +++
+* Delete data +++
+* react-sidebar +++
+* react-table +++
 
 ---
 
 // utils - перебросить в routes +++
 // структура папок как react-app +++
-// browser-sync +++
 // API url - delete subUrl +++
 // рефакторинг SIdebar +++
 // redux test убрать +++
 // Proble with profiles list +++
-// eslint +++
 // react-modal - console errors +++
-// proptypes +++
 // columns.js - proptypes warn +++
-// 404 design +++
+// path profile/add - change routing +++
+// location.reload +++
 
 // fix favicons prod problem ---
-// isEmpty no use - use ?: logic or optional chaining ---
 // dot env NODE.env ---
 // redux reset store ---
+// image upload ---
+// Firebase API ---
+// react-select ---
+// react-device-detect ---
 
-// reducer - хранить в store или внутри компонентов
-// api - поддиректории 
-// path profile/add - change routing
-// location.reload
-// Firebase API
-// react-select
-// react-device-detect
+// reducer - хранить в store или внутри компонентов ???
+// api - поддиректории ???
+// isEmpty no use - use ?: logic or optional chaining ???
