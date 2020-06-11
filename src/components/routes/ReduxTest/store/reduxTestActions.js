@@ -5,5 +5,10 @@ export const plus = () => {
 };
 
 export const minus = () => {
-  return { type: MINUS };
+  return {
+    type: MINUS,
+    payload: {
+      number: 1,
+    }
+  };
 };

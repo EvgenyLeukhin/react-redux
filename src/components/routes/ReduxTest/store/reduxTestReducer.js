@@ -6,8 +6,8 @@ const reduxTestReducer = (state = reduxTestState, action) => {
   switch (action.type) {
 
   // actions //
-  case PLUS: return { ...state, counter: state.counter + 1 }; // ++state.counter
-  case MINUS: return { ...state, counter: state.counter - 1 }; // --state.counter
+  case PLUS:  return { ...state, counter: state.counter + 1 };                     // ++state.counter
+  case MINUS: return { ...state, counter: state.counter - action.payload.number }; // --state.counter
 
   default: return state;
   }

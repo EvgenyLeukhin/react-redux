@@ -45,8 +45,8 @@ Error: ENOSPC: System limit for number of file watchers reached, watch '/home/fo
 // react-modal - console errors +++
 // proptypes +++
 // columns.js - proptypes warn +++
+// 404 design +++
 
-// 404 design ---
 // fix favicons prod problem ---
 // isEmpty no use - use ?: logic or optional chaining ---
 // dot env NODE.env ---

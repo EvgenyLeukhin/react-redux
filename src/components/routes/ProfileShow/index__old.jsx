@@ -44,6 +44,7 @@ class ProfileShow extends Component {
         </Helmet>
 
         <h1>Show user profile</h1>
+
         {
           loading ? 'Loading...' : (
             <>
