@@ -1,63 +1,24 @@
-import React, { Component } from 'react';
-import ReactTable from 'react-table';
-import { Helmet } from 'react-helmet';
-import { Alert } from 'reactstrap';
-import PT from 'prop-types';
+// ADD REDUX TO HOC
+import { connect } from 'react-redux';
+import ProfilesList from './page';
 
-import request from 'Utils/request';
+// IMPORT ACTIONS
+import fetchProfiles from './store/profilesListActions';
 
-import columns from './columns';
+// GET DATA FROME THE STORE
+const mapStateToProps = store => {
+  return {
+    profiles: store.profilesList.profiles,
+    loading:  store.profilesList.loading,
+    error:    store.profilesList.error,
+  };
+};
 
+// mapStateToProps, mapDispatchToProps
+export default connect(mapStateToProps, { fetchProfiles })(ProfilesList);
 
-class ProfilesList extends Component {
-  state = {
-    users: [],
-    loading: false,
-    error: false,
-    errorText: ''
-  }
-
-  closeAlert = () => this.setState({ error: false });
-
-  componentDidMount() {
-    this.setState({ loading: true });
-
-    // get users request
-    request('users/searchExtra', {}, this.props.history)
-      .then(res    => this.setState({ loading: false, users: res.data, }))
-      .catch(error => this.setState({ loading: false, error: true,  errorText: error, }));
-  }
-
-  render() {
-    const { loading, users, error, errorText } = this.state;
-
-    return (
-      <div>
-        <Helmet><title>React-Redux | Profiles list</title></Helmet>
-
-        <Alert
-          color="danger"
-          isOpen={error}
-          toggle={this.closeAlert}
-        >
-          {`${errorText}` || ''}
-        </Alert>
-
-        <h1>Profiles list</h1>
-
-        <ReactTable
-          data={users}
-          resizable={true}
-          loading={loading}
-          columns={columns}
-          filterable={true}
-          className="-striped -highlight"
-        />
-      </div>
-    );
-  }
-}
-
-ProfilesList.propTypes = { history: PT.object, };
-
-export default ProfilesList;
+// shortcut mapStateToProps
+// const mapStateToProps = ({ profilesList }) => {
+//   const { profiles, loading, error } = profilesList;
+//   return { profiles, loading, error };
+// };

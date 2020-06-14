@@ -8,7 +8,7 @@ import {
 const initialState = {
   profiles: [],
   loading: false,
-  error: false,
+  error: {},
 };
 
 const profilesListReducer = (state = initialState, action) => {
@@ -19,22 +19,20 @@ const profilesListReducer = (state = initialState, action) => {
     return {
       ...state,
       loading: true,
-      error: false,
     };
 
   case FETCH + PROFILES_LIST + SUCCESS:
     return {
       ...state,
       loading: false,
-      error: false,
-      profiles: action.payload.profiles,
+      profiles: action.payload,
     };
 
   case FETCH + PROFILES_LIST + ERROR:
     return {
       ...state,
       loading: false,
-      error: action.payload.error,
+      error: action.payload,
     };
 
   // RETURN INITIAL STATE BY DEFAULT //

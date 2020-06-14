@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import ReactTable from 'react-table';
 import { Helmet } from 'react-helmet';
 import { Alert } from 'reactstrap';
-import { Redirect } from 'react-router-dom';
 import PT from 'prop-types';
 
 import isEmpty from 'lodash/isEmpty';
@@ -15,17 +14,14 @@ class ProfilesList extends Component {
   render() {
     const { profiles, loading, error } = this.props;
 
-    // redirect to /login if 401 error
-    if (error.statusCode === 401) return <Redirect to='/login' />;
-
     return (
       <div>
         <Helmet><title>React-Redux | Profiles list</title></Helmet>
 
         <h1>Profiles list</h1>
 
-        <Alert color="danger" isOpen={error && error.isAxiosError}>
-          {!isEmpty(error) && (`${error.status} - ${error.message}`)}
+        <Alert color="danger" isOpen={!isEmpty(error)}>
+          {`${error?.status} - ${error?.data?.error?.message}`}
         </Alert>
 
         <ReactTable
@@ -43,7 +39,7 @@ class ProfilesList extends Component {
 
 ProfilesList.propTypes = {
   fetchProfiles: PT.func,
-  error: PT.bool,
+  error: PT.object,
   profiles: PT.array,
   loading: PT.bool,
 };
