@@ -20,7 +20,7 @@ const fetchProfiles = () => {
 };
 
 const fetchProfilesBegin = () => ({
-  type: FETCH + PROFILES_LIST + START
+  type: FETCH + PROFILES_LIST + START,
 });
 
 const fetchProfilesSuccess = profiles => ({

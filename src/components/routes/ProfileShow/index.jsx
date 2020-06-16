@@ -8,12 +8,9 @@ import fetchUserData from './store/profileShowActions';
 import './styles.scss';
 
 // GET DATA FROME THE STORE
-const mapStateToProps = store => {
-  return {
-    userData: store.profileShow.userData,
-    loading:  store.profileShow.loading,
-    error:    store.profileShow.error,
-  };
+const mapStateToProps = ({ profileShow }) => {
+  const { userData, loading, error } = profileShow;
+  return { userData, loading, error };
 };
 
 // mapStateToProps, mapDispatchToProps

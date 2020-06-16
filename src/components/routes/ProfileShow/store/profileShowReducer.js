@@ -1,14 +1,12 @@
 // IMPORT TYPES
-import {
-  PROFILE_SHOW, START, SUCCESS, ERROR, FETCH,
-} from 'Store/types';
+import { PROFILE_SHOW, START, SUCCESS, ERROR, FETCH } from 'Store/types';
 
 
 // CREATE OF IMPORT INITIAL STATE
 const initialState = {
   userData: {},
   loading: false,
-  error: false,
+  error: {},
 };
 
 const profileShowReducer = (state = initialState, action) => {
@@ -19,22 +17,20 @@ const profileShowReducer = (state = initialState, action) => {
     return {
       ...state,
       loading: true,
-      error: false,
     };
 
   case FETCH + PROFILE_SHOW + SUCCESS:
     return {
       ...state,
       loading: false,
-      error: false,
-      userData: action.payload.userData,
+      userData: action.payload,
     };
 
   case FETCH + PROFILE_SHOW + ERROR:
     return {
       ...state,
       loading: false,
-      error: action.payload.error,
+      error: action.payload,
     };
 
     // RETURN INITIAL STATE BY DEFAULT //
