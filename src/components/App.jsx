@@ -1,7 +1,7 @@
 import React from 'react';
 import { HashRouter as Router } from 'react-router-dom';
 
-import ScrollToTop from 'Routes/ScrollToTop';
+import ScrollToTop from 'Common/ScrollToTop';
 
 import Routes from 'Routes/index.jsx';
 

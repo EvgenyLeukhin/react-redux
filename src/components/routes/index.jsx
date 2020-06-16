@@ -1,7 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import ProtectedRoute from 'Routes/ProtectedRoute';
+import ProtectedRoute from 'Common/ProtectedRoute';
 
 import Layout from 'Layout';
 
