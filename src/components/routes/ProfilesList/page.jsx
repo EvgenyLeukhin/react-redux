@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import ReactTable from 'react-table';
 import { Helmet } from 'react-helmet';
-import { Alert } from 'reactstrap';
 import PT from 'prop-types';
 
-import isEmpty from 'lodash/isEmpty';
+import ErrorAlert from 'Common/ErrorAlert';
 
 import columns from './columns';
 
@@ -20,9 +19,7 @@ class ProfilesList extends Component {
 
         <h1>Profiles list</h1>
 
-        <Alert color="danger" isOpen={!isEmpty(error)}>
-          {`${error?.status} - ${error?.data?.error?.message}`}
-        </Alert>
+        <ErrorAlert error={error} />
 
         <ReactTable
           className="-striped -highlight"

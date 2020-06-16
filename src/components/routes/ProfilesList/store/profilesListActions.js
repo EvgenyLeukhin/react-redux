@@ -3,7 +3,6 @@ import {
 } from 'Store/types';
 
 import request from 'Utils/request';
-import catchHandler from 'Utils/catchHandler';
 
 const requestParams = {
   filter: { order: 'id DESC' }
@@ -14,13 +13,9 @@ const fetchProfiles = () => {
   return (dispatch) => {
     dispatch(fetchProfilesBegin());
 
-    return request('users/searchExtra1', requestParams)
+    return request('users/searchExtra', requestParams)
       .then(res => dispatch(fetchProfilesSuccess(res)))
-
-      .catch(error => {
-        catchHandler(error);
-        dispatch(fetchProfilesError(error));
-      });
+      .catch(error => dispatch(fetchProfilesError(error)));
   };
 };
 

@@ -40,6 +40,7 @@ module.exports = {
       Store:  path.resolve(__dirname, 'src', 'store'),
       Routes: path.resolve(__dirname, 'src', 'components/routes'),
       Layout: path.resolve(__dirname, 'src', 'components/layout'),
+      Common: path.resolve(__dirname, 'src', 'components/common'),
       Consts: path.resolve(__dirname, 'src', 'consts'),
       Utils:  path.resolve(__dirname, 'src', 'utils'),
 
